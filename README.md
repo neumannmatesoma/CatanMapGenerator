@@ -21,4 +21,4 @@ I want to use a generic organization plan for this, which consits of a main **pr
 > &emsp;&emsp;index.html</br>
 > &emsp;&emsp;*other html files...*
 ## Design plans
-I plan to make mockups for the basic layout (divs and other stuff) and mockups for the actual design of the website. These can be found in the mockups folder.
+I plan to make mockups for the basic layout (divs and other stuff) and mockups for the actual design of the website. These can be found in the **mockups** folder.
