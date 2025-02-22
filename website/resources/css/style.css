@@ -1,0 +1,33 @@
+.asd {
+    height: 100vh;
+}
+
+.asd2 {
+    height: 25vh;
+}
+
+#left {
+    background-color: purple;
+    vertical-align: middle;
+}
+
+#right {
+    background-color: aqua;
+    
+}
+
+#left1 {
+    background-color: olive;
+}
+
+#left2 {
+    background-color: pink;
+}
+
+#left3 {
+    background-color: wheat;
+}
+
+#left4 {
+    background-color: darkred;
+}
