@@ -9,29 +9,80 @@
         <!--CSS import-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link rel="stylesheet" href="./resources/css/style.css">
+        <link rel="stylesheet" href="./resources/css/options.css">
     </head>
     <body>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-4 col-sm-12 asd" id="left">
-                    <div class="h-25" id="left1">
+                <!--left side of the website-->
+                <div class="col-lg-4 col-sm-12 left">
+                    <!--title-->
+                    <div class="div-borders" id="title-div">
+                        <h1 id="title-text">Catan Board Generator</h1>
+                    </div>
+
+                    <!--options section-->
+                    <div class="div-borders" id="options-div">
+                        <h2 id="options-text">Options</h2>
+
+                        <div id="line-div"></div>
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-6 col-sm-12 table-element">
+                                    <input type="checkbox" class="checkbox-round" name="cb1">
+                                    <label for="cb1">6 & 8 can touch</label>
+                                </div>
+                                <div class="col-lg-6 col-sm-12 table-element">
+                                    <input type="checkbox" class="checkbox-round" name="cb2">
+                                    <label for="cb2">Same numbers can touch</label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6 col-sm-12 table-element">
+                                    <input type="checkbox" class="checkbox-round" name="cb3">
+                                    <label for="cb3">2 & 12 can touch</label>
+                                </div>
+                                <div class="col-lg-6 col-sm-12 table-element">
+                                    <input type="checkbox" class="checkbox-round" name="cb4">
+                                    <label for="cb4">Same resources can touch</label>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-lg-6 col-sm-12 table-element">
+                                    <input type="checkbox" class="checkbox-round" name="cb5">
+                                    <label for="cb5">5th rule</label>
+                                </div>
+                                <div class="col-lg-6 col-sm-12 table-element">
+                                    <input type="checkbox" class="checkbox-round" name="cb6">
+                                    <label for="cb6">6th rule</label>
+                                </div>
+                            </div>
+                                
+                        </div>
+
+                        <div id="line-div"></div>
+
+                        <button class="div-borders options-text" id="refresh-button">
+                            Refresh
+                        </button>
+                    </div>
+
+                    <!--shuffle button-->
+                    <div class="div-borders h-25" id="left3">
                         
                     </div>
 
-                    <div class="h-25" id="left2">
-                        
-                    </div>
-
-                    <div class="h-25" id="left3">
-                        
-                    </div>
-
-                    <div class="h-25" id="left4">
+                    <!--other stuff-->
+                    <div class="div-borders h-25" id="left4">
                          
                     </div>
                 </div>
 
-                <div class="col-lg-8 col-sm-12 asd" id="right">
+                <!--right side of the website-->
+                <div class="col-lg-8 col-sm-12 right div-borders" id="right">
                     
                 </div>
             </div>

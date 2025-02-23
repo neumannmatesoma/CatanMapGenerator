@@ -1,25 +1,46 @@
-.asd {
+.div-borders {
+    border: 0.5vh;
+    border-radius: 3rem;
+    border-style: solid;
+    border-color: black;
+}
+
+.left {
     height: 100vh;
 }
 
+.right {
+    height: 100vh;
+}
+
+
+
 #left {
     background-color: purple;
-    vertical-align: middle;
 }
 
 #right {
     background-color: aqua;
-    
 }
 
-#left1 {
+
+/*title - left1*/
+#title-div {
     background-color: olive;
+    text-align: center;
+    padding: 2rem;
+    margin: 2rem;
+}
+#title-text {
+    font-weight: bolder;
+    font-size: 4rem;
+    color: black;
 }
 
-#left2 {
-    background-color: pink;
-}
+/*options - left2*/
 
+
+/*shuffle - left3*/
 #left3 {
     background-color: wheat;
 }

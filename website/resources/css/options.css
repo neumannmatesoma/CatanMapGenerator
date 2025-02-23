@@ -1,0 +1,55 @@
+#options-div {
+    background-color: pink;
+    text-align: center;
+    padding: 1rem 2rem 2rem 2rem;
+    margin: 1.5rem;
+    align-items: center;
+    vertical-align: middle;
+}
+
+#options-text {
+    font-size: 3.5rem;
+    color: black;
+    font-weight: bold;
+}
+
+#line-div {
+    background-color: black;
+    width: auto;
+    height: 0.5rem;
+    margin: 1rem;
+}
+
+#refresh-button {
+    width: 100%;
+    padding: 1rem;
+    margin: 1.5rem;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 3rem;
+    color: black;
+    font-weight: bold;
+}
+
+.table-element {
+    width: auto;
+    font-size: 2rem;
+    vertical-align: middle;
+    text-align: center;
+    align-items: center;
+    font-weight: bold;
+    padding: 0.8rem;
+}
+
+.checkbox-round {
+    width: 1.3em;
+    height: 1.3em;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 0.3rem solid black;
+    appearance: none;
+}
+
+.checkbox-round:checked {
+    background-color: blue;
+}
