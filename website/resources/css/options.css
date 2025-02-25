@@ -1,8 +1,4 @@
-#options-div {
-
-}
-
-#line-div {
+.line-div {
     background-color: black;
     width: auto;
     height: 0.2rem;
