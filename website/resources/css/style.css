@@ -5,46 +5,30 @@
     border-color: black;
 }
 
-.left {
-    height: 100vh;
-}
-
-.right {
-    height: 100vh;
-}
-
-
-
-#left {
-    background-color: purple;
-}
-
-#right {
-    background-color: aqua;
-}
-
-
-/*title - left1*/
-#title-div {
-    background-color: olive;
+.base-div-formatting {
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+    padding: 1rem;
     text-align: center;
-    padding: 2rem;
-    margin: 2rem;
+    align-items: center;
+    vertical-align: middle;
 }
-#title-text {
+
+.title-text-formatting {
     font-weight: bolder;
-    font-size: 4rem;
+    font-size: 2rem;
     color: black;
 }
 
-/*options - left2*/
-
-
-/*shuffle - left3*/
-#left3 {
-    background-color: wheat;
+.base-text-formatting {
+    font-size: 1.5rem;
+    color: black;
+    font-weight: bold;
 }
 
-#left4 {
-    background-color: darkred;
+.asd {
+    width: 100%;
+}
+
+.sda {
+    align-items: center;
 }

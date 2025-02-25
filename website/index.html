@@ -15,75 +15,202 @@
         <div class="container-fluid">
             <div class="row">
                 <!--left side of the website-->
-                <div class="col-lg-4 col-sm-12 left">
-                    <!--title-->
-                    <div class="div-borders" id="title-div">
-                        <h1 id="title-text">Catan Board Generator</h1>
+                <div class="col-sm-12 col-md-12 col-lg-5 col-xl-4">
+                    <!--próba arra hogy az options md-nél a 2 gomb mellé kerüljön be-->
+                    <div class="container-fluid">
+                        <div class="row">
+                            <!--shuffle és title-->
+                            <div class="col-sm-12 col-md-6 col-lg-12 col-xl-12">
+                                <!--title div-->
+                                <div class="div-borders base-div-formatting" id="title-div">
+                                    <h1 class="title-text-formatting" style="display: inline-block;">Catan Board Generator</h1>
+                                </div>
+                                <!--buttons-->
+                                <div class="container-fluid justify-content-center">
+                                    <!--classic and expansion-->
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-12 col-lg-6 col-xl-6 justify-content-center">
+                                            <button class="asd div-borders base-div-formatting title-text-formatting">Classic</button>
+                                        </div>
+                                        <div class="col-sm-6 col-md-12 col-lg-6 col-xl-6 justify-content-center">
+                                            <button class="asd div-borders base-div-formatting title-text-formatting">Expansion</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="container-fluid justify-content-center">
+                                        <div class="row justify-content-center">
+                                            <button class="col-12 div-borders base-div-formatting title-text-formatting">Shuffle</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--rule options-->
+                            <div class="col-sm-12 col-md-6 col-lg-12 col-xl-12">
+                                <!--rule options-->
+                                <div class="div-borders base-div-formatting" id="options-div">
+                                    <h1 class="title-text-formatting" id="options-text">Options</h1>
+
+                                    <div id="line-div"></div>
+
+                                    <div class="container-fluid ">
+                                        <div class="row d-flex justify-content-start">
+                                            <div class="col-9 text-start table-element">
+                                                <label for="cb1" class="rule-text">6 & 8 can touch</label>
+                                            </div>
+                                            <div class="col-3 text-start table-element">
+                                                <input type="checkbox" class="checkbox-round" name="cb1">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row d-flex justify-content-start">
+                                            <div class="col-9 text-start table-element">
+                                                <label for="cb2" class="rule-text">2 & 12 can touch</label>
+                                            </div>
+                                            <div class="col-3 text-start table-element">
+                                                <input type="checkbox" class="checkbox-round" name="cb2">
+                                            </div>
+                                        </div>
+
+                                        <div class="row d-flex justify-content-start">
+                                            <div class="col-9 text-start table-element">
+                                                <label for="cb3" class="rule-text">Same numbers can touch</label>
+                                            </div>
+                                            <div class="col-3 text-start table-element">
+                                                <input type="checkbox" class="checkbox-round" name="cb3">
+                                            </div>
+                                        </div>
+
+                                        <div class="row d-flex justify-content-start">
+                                            <div class="col-9 text-start table-element">
+                                                <label for="cb4" class="rule-text">Same resources can touch</label>
+                                            </div>
+                                            <div class="col-3 text-start table-element">
+                                                <input type="checkbox" class="checkbox-round" name="cb4">
+                                            </div>
+                                        </div>
+
+                                        <div class="row d-flex justify-content-start">
+                                            <div class="col-9 text-start table-element">
+                                                <label for="cb5" class="rule-text">No triple same resource</label>
+                                            </div>
+                                            <div class="col-3 text-start table-element">
+                                                <input type="checkbox" class="checkbox-round" name="cb5">
+                                            </div>
+                                        </div>
+
+                                        <div class="row d-flex justify-content-start">
+                                            <div class="col-9 text-start table-element"  style="align-items: center;">
+                                                <label for="cb6" class="rule-text">At least one different neighbor</label>
+                                            </div>
+                                            <div class="col-3 table-element">
+                                                <input type="checkbox" class="checkbox-round" name="cb6">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="line-div"></div>
+
+                                    <div class="container-fluid">
+                                        <button class="div-borders base-text-formatting" id="refresh-button">
+                                            Refresh
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <!--options section-->
-                    <div class="div-borders" id="options-div">
-                        <h2 id="options-text">Options</h2>
+
+
+                    <!--og-->
+                <!--<div class="div-borders base-div-formatting col-md-6" id="title-div">
+                        <h1 class="title-text-formatting">Catan Board Generator</h1>
+                    </div>
+                    
+                    <div class="div-borders base-div-formatting col-md-6" id="options-div">
+                        <h1 class="title-text-formatting" id="options-text">Options</h1>
 
                         <div id="line-div"></div>
 
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-6 col-sm-12 table-element">
-                                    <input type="checkbox" class="checkbox-round" name="cb1">
-                                    <label for="cb1">6 & 8 can touch</label>
+                        <div class="container-fluid">
+                            <div class="row d-flex justify-content-start">
+                                <div class="col-9 text-start table-element">
+                                    <label for="cb1" class="rule-text">6 & 8 can touch</label>
                                 </div>
-                                <div class="col-lg-6 col-sm-12 table-element">
-                                    <input type="checkbox" class="checkbox-round" name="cb2">
-                                    <label for="cb2">Same numbers can touch</label>
+                                <div class="col-3 text-start table-element">
+                                    <input type="checkbox" class="checkbox-round" name="cb1">
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="col-lg-6 col-sm-12 table-element">
+
+                            <div class="row d-flex justify-content-start">
+                                <div class="col-9 text-start table-element">
+                                    <label for="cb2" class="rule-text">2 & 12 can touch</label>
+                                </div>
+                                <div class="col-3 text-start table-element">
+                                    <input type="checkbox" class="checkbox-round" name="cb2">
+                                </div>
+                            </div>
+
+                            <div class="row d-flex justify-content-start">
+                                <div class="col-9 text-start table-element">
+                                    <label for="cb3" class="rule-text">Same numbers can touch</label>
+                                </div>
+                                <div class="col-3 text-start table-element">
                                     <input type="checkbox" class="checkbox-round" name="cb3">
-                                    <label for="cb3">2 & 12 can touch</label>
                                 </div>
-                                <div class="col-lg-6 col-sm-12 table-element">
+                            </div>
+
+                            <div class="row d-flex justify-content-start">
+                                <div class="col-9 text-start table-element">
+                                    <label for="cb4" class="rule-text">Same resources can touch</label>
+                                </div>
+                                <div class="col-3 text-start table-element">
                                     <input type="checkbox" class="checkbox-round" name="cb4">
-                                    <label for="cb4">Same resources can touch</label>
                                 </div>
                             </div>
-                            
-                            <div class="row">
-                                <div class="col-lg-6 col-sm-12 table-element">
+
+                            <div class="row d-flex justify-content-start">
+                                <div class="col-9 text-start table-element">
+                                    <label for="cb5" class="rule-text">No triple same resource</label>
+                                </div>
+                                <div class="col-3 text-start table-element">
                                     <input type="checkbox" class="checkbox-round" name="cb5">
-                                    <label for="cb5">5th rule</label>
-                                </div>
-                                <div class="col-lg-6 col-sm-12 table-element">
-                                    <input type="checkbox" class="checkbox-round" name="cb6">
-                                    <label for="cb6">6th rule</label>
                                 </div>
                             </div>
-                                
+
+                            <div class="row d-flex justify-content-start">
+                                <div class="col-9 text-start table-element">
+                                    <label for="cb6" class="rule-text">At least one different neighbor</label>
+                                </div>
+                                <div class="col-3 text-start table-element">
+                                    <input type="checkbox" class="checkbox-round" name="cb6">
+                                </div>
+                            </div>
                         </div>
 
                         <div id="line-div"></div>
 
-                        <button class="div-borders options-text" id="refresh-button">
-                            Refresh
-                        </button>
-                    </div>
-
-                    <!--shuffle button-->
-                    <div class="div-borders h-25" id="left3">
+                        <div class="container-fluid">
+                            <button class="div-borders base-text-formatting" id="refresh-button">
+                                Refresh
+                            </button>
+                        </div>
                         
                     </div>
-
-                    <!--other stuff-->
-                    <div class="div-borders h-25" id="left4">
-                         
-                    </div>
+                
+                    <div class="div-borders base-div-formatting" id="left3">
+                        <h1 class="title-text-formatting">Shuffle</h1>
+                    </div>-->
                 </div>
 
                 <!--right side of the website-->
-                <div class="col-lg-8 col-sm-12 right div-borders" id="right">
-                    
+                <div class="col-sm-12 col-md-12 col-lg-7 col-xl-8">
+                    <div class="div-borders base-div-formatting">
+
+                    </div>
                 </div>
             </div>
         </div>
