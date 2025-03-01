@@ -27,15 +27,7 @@ div {
     font-size: 1.5rem;
     color: black;
     font-weight: bold;
-}
-
-.asd {
-    width: 100%;
-}
-
-.sda {
-    align-items: center;
-}
+} 
 
 .tile {
     background-image: url(../img/original/wheat.png);
