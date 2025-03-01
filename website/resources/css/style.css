@@ -3,7 +3,7 @@ div {
 }
 
 .div-borders {
-    border: 0.5vh;
+    border: 0.25rem;
     border-radius: 3rem;
     border-style: solid;
     border-color: black;
