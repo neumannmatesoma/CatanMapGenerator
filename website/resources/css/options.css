@@ -28,5 +28,5 @@
 }
 
 .checkbox-round:checked {
-    background-color: blue;
+    background-color: rgba(100, 149, 237, 0.8);
 }
