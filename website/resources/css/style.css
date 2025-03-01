@@ -36,3 +36,11 @@ div {
 .sda {
     align-items: center;
 }
+
+.tile {
+    background-image: url(../img/original/wheat.png);
+    background-size: cover;
+    height: 7rem;
+    width: 6rem;
+    margin: -0.8rem 0.1rem -0.8rem 0.1rem;
+}
