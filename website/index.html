@@ -42,7 +42,7 @@
 
                                     <!-- shuffle -->
                                     <div class="row justify-content-center">
-                                        <button class="col-12 div-borders base-div-formatting title-text-formatting">Shuffle</button>
+                                        <button class="col-12 div-borders base-div-formatting title-text-formatting" onclick="init()">Shuffle</button>
                                     </div>
                                 </div>
                             </div>
@@ -138,7 +138,7 @@
 
                                     <!-- refresh button -->
                                     <div class="container-fluid">
-                                        <button class="div-borders base-text-formatting" id="refresh-button">
+                                        <button class="div-borders base-text-formatting" id="refresh-button" onclick="myFunction()">
                                             Refresh
                                         </button>
                                     </div>
@@ -152,49 +152,52 @@
                 <div class="col-sm-12 col-md-12 col-lg-7 col-xl-8">
                     <div class="div-borders base-div-formatting h-100 d-flex justify-content-center align-items-center">
                         <!-- grid for the map -->
-                        <div class="container-fluid">
+                        <div class="container-fluid map-grid">
                             <!-- first row with 3 tiles -->
                             <div class="row justify-content-center">
-                                <div class="tile col-4"></div>
-                                <div class="tile col-4"></div>
-                                <div class="tile col-4"></div>
+                                <div class="tile col-4" id="map_div_1"></div>
+                                <div class="tile col-4" id="map_div_2"></div>
+                                <div class="tile col-4" id="map_div_3"></div>
                             </div>
 
                             <!-- second row with 4 tiles -->
                             <div class="row justify-content-center">
-                                <div class="tile col-3"></div>
-                                <div class="tile col-3"></div>
-                                <div class="tile col-3"></div>
-                                <div class="tile col-3"></div>
+                                <div class="tile col-3" id="map_div_4"></div>
+                                <div class="tile col-3" id="map_div_5"></div>
+                                <div class="tile col-3" id="map_div_6"></div>
+                                <div class="tile col-3" id="map_div_7"></div>
                             </div>
 
                             <!-- third row with 5 tiles -->
                             <div class="row justify-content-center">
-                                <div class="tile col-2.5"></div>
-                                <div class="tile col-2.5"></div>
-                                <div class="tile col-2.5"></div>
-                                <div class="tile col-2.5"></div>
-                                <div class="tile col-2.5"></div>
+                                <div class="tile col-2.5" id="map_div_8"></div>
+                                <div class="tile col-2.5" id="map_div_9"></div>
+                                <div class="tile col-2.5" id="map_div_10"></div>
+                                <div class="tile col-2.5" id="map_div_11"></div>
+                                <div class="tile col-2.5" id="map_div_12"></div>
                             </div>
 
                             <!-- fourth row with 4 tiles -->
                             <div class="row justify-content-center">
-                                <div class="tile col-3"></div>
-                                <div class="tile col-3"></div>
-                                <div class="tile col-3"></div>
-                                <div class="tile col-3"></div>
+                                <div class="tile col-3" id="map_div_13"></div>
+                                <div class="tile col-3" id="map_div_14"></div>
+                                <div class="tile col-3" id="map_div_15"></div>
+                                <div class="tile col-3" id="map_div_16"></div>
                             </div>
 
                             <!-- first row with 3 tiles -->
                             <div class="row justify-content-center">
-                                <div class="tile col-4"></div>
-                                <div class="tile col-4"></div>
-                                <div class="tile col-4"></div>
+                                <div class="tile col-4" id="map_div_17"></div>
+                                <div class="tile col-4" id="map_div_18"></div>
+                                <div class="tile col-4" id="map_div_19"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <script src="./resources/js/init.js"></script>
+        <script src="./resources/js/shuffle.js"></script>
     </body>
 </html>

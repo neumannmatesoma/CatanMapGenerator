@@ -27,7 +27,7 @@ div {
     font-size: 1.5rem;
     color: black;
     font-weight: bold;
-} 
+}
 
 .tile {
     background-image: url(../img/original/wheat.png);
@@ -36,3 +36,12 @@ div {
     width: 6rem;
     margin: -0.8rem 0.1rem -0.8rem 0.1rem;
 }
+
+@media screen and (max-width: 577px) {
+    .tile {
+        background-size: cover;
+        height: 5.3rem;
+        width: 4.3rem;
+        margin: -0.50rem 0.1rem -0.50rem 0.1rem;
+    }
+  }
