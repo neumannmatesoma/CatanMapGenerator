@@ -37,7 +37,6 @@ function picChange(pic, num) { document.getElementById(`map_div_${num}`).style.b
     function SelectOnChange() {
         theme = document.getElementById("theme_selector").value;
         pic_path = `/resources/img/${theme}/`;
-        alert(theme + ", " + pic_path);
     }
 
     function CheckBoxOnChange1() { rule1 = document.getElementById("cb1").checked; }
