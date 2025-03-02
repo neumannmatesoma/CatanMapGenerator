@@ -30,7 +30,7 @@ div {
 }
 
 .tile {
-    background-image: url(../img/original/wheat.png);
+    background-color: transparent;
     background-size: cover;
     height: 7rem;
     width: 6rem;
