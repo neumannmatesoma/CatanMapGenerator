@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="./resources/css/style.css">
         <link rel="stylesheet" href="./resources/css/options.css">
     </head>
-    <body>
+    <body onload="init()">
         <div class="container-fluid">
             <div class="row">
                 <!--left side of the website-->
@@ -42,7 +42,7 @@
 
                                     <!-- shuffle -->
                                     <div class="row justify-content-center">
-                                        <button class="col-12 div-borders base-div-formatting title-text-formatting" onclick="init()">Shuffle</button>
+                                        <button class="col-12 div-borders base-div-formatting title-text-formatting" onclick="RandomShuffle()">Shuffle</button>
                                     </div>
                                 </div>
                             </div>
@@ -56,7 +56,6 @@
                                     <!-- line -->
                                     <div class="line-div"></div>
 
-
                                     <!-- options content -->
                                     <div class="container-fluid">
                                         <!-- theme selector -->
@@ -65,9 +64,9 @@
                                                 <label for="theme-selector" class="rule-text align-middle">Card Style</label>
                                             </div>
                                             <div class="col-3 table-element justify-content-center">
-                                                <select name="theme-selector" id="theme-selector">
-                                                    <option value="1">Original</option>
-                                                    <option value="1">Futuristic</option>
+                                                <select name="theme-selector" id="theme_selector" onchange="SelectOnChange()">
+                                                    <option value="original">Original</option>
+                                                    <option value="futuristic">Futuristic</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -78,7 +77,7 @@
                                                 <label for="cb1" class="rule-text">6 & 8 can touch</label>
                                             </div>
                                             <div class="col-2 text-start table-element">
-                                                <input type="checkbox" class="checkbox-round" name="cb1">
+                                                <input type="checkbox" class="checkbox-round" name="cb1" id="cb1" value="first_rule" onchange="CheckBoxOnChange1()">
                                             </div>
                                         </div>
 
@@ -88,7 +87,7 @@
                                                 <label for="cb2" class="rule-text">2 & 12 can touch</label>
                                             </div>
                                             <div class="col-2 text-start table-element">
-                                                <input type="checkbox" class="checkbox-round" name="cb2">
+                                                <input type="checkbox" class="checkbox-round" name="cb2" id="cb2" value="second_rule" onchange="CheckBoxOnChange2()">
                                             </div>
                                         </div>
 
@@ -98,7 +97,7 @@
                                                 <label for="cb3" class="rule-text">Same numbers can touch</label>
                                             </div>
                                             <div class="col-2 text-start table-element">
-                                                <input type="checkbox" class="checkbox-round" name="cb3">
+                                                <input type="checkbox" class="checkbox-round" name="cb3" id="cb3" value="third_rule" onchange="CheckBoxOnChange3()">
                                             </div>
                                         </div>
 
@@ -108,7 +107,7 @@
                                                 <label for="cb4" class="rule-text">Same resources can touch</label>
                                             </div>
                                             <div class="col-2 text-start table-element">
-                                                <input type="checkbox" class="checkbox-round" name="cb4">
+                                                <input type="checkbox" class="checkbox-round" name="cb4" id="cb4" value="fourth_rule" onchange="CheckBoxOnChange4()">
                                             </div>
                                         </div>
 
@@ -118,17 +117,17 @@
                                                 <label for="cb5" class="rule-text">No triple same resource</label>
                                             </div>
                                             <div class="col-2 text-start table-element">
-                                                <input type="checkbox" class="checkbox-round" name="cb5">
+                                                <input type="checkbox" class="checkbox-round" name="cb5" id="cb5" value="fifth_rule" onchange="CheckBoxOnChange5()">
                                             </div>
                                         </div>
 
                                         <!-- sixth rule -->
                                         <div class="row d-flex justify-content-start">
-                                            <div class="col-9 text-start table-element"  style="align-items: center;">
+                                            <div class="col-9 text-start table-element">
                                                 <label for="cb6" class="rule-text">At least one different neighbor</label>
                                             </div>
                                             <div class="col-3 table-element">
-                                                <input type="checkbox" class="checkbox-round" name="cb6">
+                                                <input type="checkbox" class="checkbox-round" name="cb6"  id="cb6" value="sixth_rule" onchange="CheckBoxOnChange6()">
                                             </div>
                                         </div>
                                     </div>
@@ -138,7 +137,7 @@
 
                                     <!-- refresh button -->
                                     <div class="container-fluid">
-                                        <button class="div-borders base-text-formatting" id="refresh-button" onclick="myFunction()">
+                                        <button class="div-borders base-text-formatting" id="refresh-button" onclick="">
                                             Refresh
                                         </button>
                                     </div>

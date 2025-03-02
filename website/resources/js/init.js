@@ -1,29 +1,50 @@
-setTimeout(init, 0)
+// variables
+var theme = null; // theme
+var rule1 = null; // 6 & 8 can touch
+var rule2 = null; // 2 & 12 can touch
+var rule3 = null; // Same numbers can touch
+var rule4 = null; // Same resources can touch
+var rule5 = null; // No triple same resource
+var rule6 = null; // Atleast one different neighbor
+var ore_types = ["brick", "desert", "ore", "sheep", "wheat", "wood"] // the types of ores
+
+// div --> map_div_%DIV_NUM%
+// pic --> `url(/resources/img/${THEME}/"${PIC}.png)`
 
 function init() {
-    const pics = ["brick", "desert", "ore", "sheep", "sheep", "wood"]
-    
-    DivWalkthrough();
+    // initializing theme and options
+    theme = document.getElementById("theme_selector").value;
+    rule1 = document.getElementById("cb1").checked;
+    rule2 = document.getElementById("cb2").checked;
+    rule3 = document.getElementById("cb3").checked;
+    rule4 = document.getElementById("cb4").checked;
+    rule5 = document.getElementById("cb5").checked;
+    rule6 = document.getElementById("cb6").checked;
 
-    /*for (let i = 1; i< 20; i++){
-        let rand_pic = Math.floor(getRandomArbitrary(1, 6));
-
-        // alert(`div: ${i} | pic: ${pics[rand_pic]}`);
-        
-        picChange(`${pics[rand_pic]}`, i);
-
-    }*/
-
+    RandomShuffle();
 }
 
+// random number generator
 function getRandomArbitrary(min, max) {
     return Math.random() * (max - min) + min;
 }
 
-function picChange(pic, num) {
-    document.getElementById(mapDivChange(num)).style.backgroundImage = "url(/resources/img/original/" + pic + ".png)";
-}
+// changes the picture on the selected div
+function picChange(pic, num) { document.getElementById(`map_div_${num}`).style.backgroundImage = "url(/resources/img/original/" + pic + ".png)"; }
 
-function mapDivChange (div_num) {
-    return "map_div_" + div_num;
+// OnChange methods
+{
+    function SelectOnChange() { theme = document.getElementById("theme_selector").value; }
+
+    function CheckBoxOnChange1() { rule1 = document.getElementById("cb1").checked; }
+
+    function CheckBoxOnChange2() { rule2 = document.getElementById("cb2").checked; }
+
+    function CheckBoxOnChange3() { rule3 = document.getElementById("cb3").checked; }
+
+    function CheckBoxOnChange4() { rule4 = document.getElementById("cb4").checked; }
+
+    function CheckBoxOnChange5() { rule5 = document.getElementById("cb5").checked; }
+
+    function CheckBoxOnChange6() { rule6 = document.getElementById("cb6").checked; }
 }
