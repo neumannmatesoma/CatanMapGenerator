@@ -7,7 +7,7 @@ var rule4 = null; // same resources can touch
 var rule5 = null; // no triple same resource
 var rule6 = null; // atleast one different neighbor
 var pic_path = null; // tile picture path
-var ore_types = ["brick", "desert", "ore", "sheep", "wheat", "wood"] // the types of ores
+var ore_types = ["desert", "brick", "ore", "sheep", "wheat", "wood"] // the types of ores
 
 // div --> map_div_%DIV_NUM%
 // pic --> `url(/resources/img/${THEME}/"${PIC}.png)`
@@ -27,14 +27,10 @@ function init() {
 }
 
 // random number generator
-function getRandomArbitrary(min, max) {
-    return Math.random() * (max - min) + min;
-}
+function getRandom(min, max) { return Math.random() * (max - min) + min; }
 
 // changes the picture on the selected div
-function picChange(pic, num) {
-    document.getElementById(`map_div_${num}`).style.backgroundImage = `url(${pic_path + pic}.png)`;
-}
+function picChange(pic, num) { document.getElementById(`map_div_${num}`).style.backgroundImage = `url(${pic_path + pic}.png)`; }
 
 // OnChange methods
 {
