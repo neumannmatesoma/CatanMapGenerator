@@ -14,13 +14,13 @@ var ore_types = ["desert", "brick", "ore", "sheep", "wheat", "wood"] // the type
 
 function init() {
     // initializing theme and options
-    theme = document.getElementById("theme_selector").value;
-    rule1 = document.getElementById("cb1").checked;
-    rule2 = document.getElementById("cb2").checked;
-    rule3 = document.getElementById("cb3").checked;
-    rule4 = document.getElementById("cb4").checked;
-    rule5 = document.getElementById("cb5").checked;
-    rule6 = document.getElementById("cb6").checked;
+    theme = document.getElementById("theme_selector_id").value;
+    rule1 = document.getElementById("cb1_id").checked;
+    rule2 = document.getElementById("cb2_id").checked;
+    rule3 = document.getElementById("cb3_id").checked;
+    rule4 = document.getElementById("cb4_id").checked;
+    rule5 = document.getElementById("cb5_id").checked;
+    rule6 = document.getElementById("cb6_id").checked;
     pic_path = `/resources/img/${theme}/`;
 
     RandomShuffle();
