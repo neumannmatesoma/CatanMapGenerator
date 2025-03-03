@@ -44,4 +44,10 @@ div {
         width: 4.3rem;
         margin: -0.50rem 0.1rem -0.50rem 0.1rem;
     }
-  }
+}
+
+.map-num-pos-div {
+    margin-top: 50%;
+    font-size: 1rem;
+    font-weight: bold;
+}

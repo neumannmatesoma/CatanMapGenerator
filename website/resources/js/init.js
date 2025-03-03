@@ -30,7 +30,12 @@ function init() {
 function getRandom(min, max) { return Math.random() * (max - min) + min; }
 
 // changes the picture on the selected div
-function picChange(pic, num) { document.getElementById(`map_div_${num}`).style.backgroundImage = `url(${pic_path + pic}.png)`; }
+function picChange(pic, num) {
+    document.getElementById(`map_div_${num}`).style.backgroundImage = `url(${pic_path + pic}.png)`;
+    if (pic == 'desert') {
+        return true;
+    }
+}
 
 // OnChange methods
 {
