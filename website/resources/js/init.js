@@ -36,23 +36,3 @@ function picChange(pic, num) {
         return true;
     }
 }
-
-// OnChange methods
-{
-    function SelectOnChange() {
-        theme = document.getElementById("theme_selector").value;
-        pic_path = `/resources/img/${theme}/`;
-    }
-
-    function CheckBoxOnChange1() { rule1 = document.getElementById("cb1").checked; }
-
-    function CheckBoxOnChange2() { rule2 = document.getElementById("cb2").checked; }
-
-    function CheckBoxOnChange3() { rule3 = document.getElementById("cb3").checked; }
-
-    function CheckBoxOnChange4() { rule4 = document.getElementById("cb4").checked; }
-
-    function CheckBoxOnChange5() { rule5 = document.getElementById("cb5").checked; }
-
-    function CheckBoxOnChange6() { rule6 = document.getElementById("cb6").checked; }
-}
