@@ -21,18 +21,9 @@ function init() {
     rule4 = document.getElementById("cb4_id").checked;
     rule5 = document.getElementById("cb5_id").checked;
     rule6 = document.getElementById("cb6_id").checked;
+    // IMPORTANT: if its opened from root folder (CatanMapGenerator)
+    // then "/website/resources/img/${theme}/" is needed
     pic_path = `/resources/img/${theme}/`;
 
     RandomShuffle();
-}
-
-// random number generator
-function getRandom(min, max) { return Math.random() * (max - min) + min; }
-
-// changes the picture on the selected div
-function picChange(pic, num) {
-    document.getElementById(`map_div_${num}`).style.backgroundImage = `url(${pic_path + pic}.png)`;
-    if (pic == 'desert') {
-        return true;
-    }
 }

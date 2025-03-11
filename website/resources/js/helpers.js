@@ -1,3 +1,17 @@
+// Random number generator
+function getRandom(min, max) { return Math.random() * (max - min) + min; }
+
+// Changes the picture on the selected div
+function picChange(pic, num) {
+    document.getElementById(`map_div_${num}`).style.backgroundImage = `url(${pic_path + pic}.png)`;
+    if (pic == 'desert') {
+        return true;
+    }
+}
+
+
+
+// Selector onChange
 function SelectOnChange() {
     console.clear();
     theme = document.getElementById("theme_selector_id").value;
@@ -5,6 +19,7 @@ function SelectOnChange() {
     console.log(`theme changed - ${theme.value} ${pic_path}`);
 }
 
+// CheckBox onChanges
 function CheckBoxOnChange1() {
     console.clear();
     rule1 = document.getElementById("cb1_id").checked;
