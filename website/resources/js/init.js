@@ -21,9 +21,11 @@ function init() {
     rule4 = document.getElementById("cb4_id").checked;
     rule5 = document.getElementById("cb5_id").checked;
     rule6 = document.getElementById("cb6_id").checked;
+    
     // IMPORTANT: if its opened from root folder (CatanMapGenerator)
     // then "/website/resources/img/${theme}/" is needed
     pic_path = `/resources/img/${theme}/`;
+
 
     RandomShuffle();
 }

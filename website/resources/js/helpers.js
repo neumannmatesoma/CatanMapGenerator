@@ -10,7 +10,6 @@ function picChange(pic, num) {
 }
 
 
-
 // Selector onChange
 function SelectOnChange() {
     console.clear();
