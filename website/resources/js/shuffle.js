@@ -13,6 +13,7 @@ function RandomShuffle() {
 
 function LoadNumber(i) {
     var rand = Math.floor(getRandom(2, 12))
+    document.getElementById(`map_div_back_${i}`).style.backgroundImage = `url(/resources/img/back1.png)`;
     document.getElementById(`map_div_${i}_num`).innerHTML = rand;
     document.getElementById(`map_div_${i}_dot`).innerHTML = possibility[RollCalculator(rand)-1];
 
