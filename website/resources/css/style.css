@@ -52,6 +52,15 @@ div {
     font-weight: bold;
 }
 
+.map-div-back {
+    background-size: cover;
+    height: 4rem;
+}
+
+.map-div-num {
+    padding-top: 15%;
+}
+
 footer {
     background-color: bisque;
 }

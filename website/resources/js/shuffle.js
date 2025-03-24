@@ -2,7 +2,7 @@ var possibility = [".", "..", "...", "....", ".....", "......"]
 
 function RandomShuffle() {
     console.clear();
-    for (let i = 1; i< 20; i++){
+    for (let i = 1; i < 20; i++){
         let rand_pic = Math.floor(getRandom(0, 6));
         var desert_a = picChange(`${ore_types[rand_pic]}`, i);
         console.log(`${i}) ${rand_pic} - ${ore_types[rand_pic]}`);
@@ -13,7 +13,7 @@ function RandomShuffle() {
 
 function LoadNumber(i) {
     var rand = Math.floor(getRandom(2, 12))
-    document.getElementById(`map_div_back_${i}`).style.backgroundImage = `url(/resources/img/back1.png)`;
+    document.getElementById(`map_div_${i}_back`).style.backgroundImage = `url(/resources/img/back1.png)`;
     document.getElementById(`map_div_${i}_num`).innerHTML = rand;
     document.getElementById(`map_div_${i}_dot`).innerHTML = possibility[RollCalculator(rand)-1];
 
