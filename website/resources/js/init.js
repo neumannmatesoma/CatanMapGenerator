@@ -27,5 +27,5 @@ function init() {
     pic_path = `/resources/img/${theme}/`;
 
 
-    RandomShuffle();
+    Shuffle();
 }

@@ -1,6 +1,6 @@
 var possibility = [".", "..", "...", "....", ".....", "......"]
 
-function RandomShuffle() {
+function Shuffle() {
     console.clear();
     for (let i = 1; i < 20; i++){
         let rand_pic = Math.floor(getRandom(0, 6));

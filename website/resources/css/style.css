@@ -48,7 +48,7 @@ div {
 
 .map-num-pos-div {
     margin: 30% 0 50% 0;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: bold;
 }
 
@@ -59,6 +59,10 @@ div {
 
 .map-div-num {
     padding-top: 15%;
+}
+
+.map-div-dot {
+    margin-top: -0.6rem;
 }
 
 footer {
