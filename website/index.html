@@ -10,6 +10,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link rel="stylesheet" href="./resources/css/style.css">
         <link rel="stylesheet" href="./resources/css/options.css">
+        <link rel="stylesheet" href="./resources/css/sea.css">
     </head>
     <body onload="init()">
         <div class="container-fluid align-content-center mt-3 mb-3">
@@ -149,29 +150,21 @@
                     <div class="div-borders base-div-formatting h-100 d-flex justify-content-center align-items-center" id="classic">
                         <!-- grid for the map -->
                         <div class="container-fluid map-grid">
+                            <!-- top sea border -->
                             <div class="row justify-content-center">
-                                <div class="tile col-4" style="background-image: url(/resources/img/original/sea.png);">
-                                    
-                                </div>
+                                <div class="tile col-4 sea-div sea-div-top" id="sea-div-top"></div>
 
-                                <div class="tile col-4" style="background-image: url(/resources/img/original/sea.png);">
-                                    
-                                </div>
+                                <div class="tile col-4 sea-div sea-div-top" id="sea-div-top"></div>
 
-                                <div class="tile col-4" style="background-image: url(/resources/img/original/sea.png);">
-                                    
-                                </div>
+                                <div class="tile col-4 sea-div sea-div-top" id="sea-div-top"></div>
 
-                                <div class="tile col-4" style="background-image: url(/resources/img/original/sea.png);">
-                                    
-                                </div>
+                                <div class="tile col-4 sea-div sea-div-top" id="sea-div-top"></div>
                             </div>
 
                             <!-- first row with 3 tiles -->
                             <div class="row justify-content-center">
-                                <div class="tile col-4" style="background-image: url(/resources/img/original/sea.png);">
-                                    
-                                </div>
+                                <!-- sea border -->
+                                <div class="tile col-4 sea-div sea-div-left"></div>
 
                                 <!-- 1st tile -->
                                 <div class="tile col-4" id="map_div_1">
@@ -203,16 +196,14 @@
                                     </div>
                                 </div>
 
-                                <div class="tile col-4" style="background-image: url(/resources/img/original/sea.png);">
-                                    
-                                </div>
+                                <!-- sea border -->
+                                <div class="tile col-4 sea-div sea-div-right"></div>
                             </div>
 
                             <!-- second row with 4 tiles -->
                             <div class="row justify-content-center">
-                                <div class="tile col-4" style="background-image: url(/resources/img/original/sea.png);">
-                                    
-                                </div>
+                                <!-- sea border -->
+                                <div class="tile col-4 sea-div sea-div-left"></div>
 
                                 <!-- 4th tile -->
                                 <div class="tile col-3" id="map_div_4">
@@ -254,16 +245,14 @@
                                     </div>
                                 </div>
 
-                                <div class="tile col-4" style="background-image: url(/resources/img/original/sea.png);">
-                                    
-                                </div>
+                                <!-- sea border -->
+                                <div class="tile col-4 sea-div sea-div-right"></div>
                             </div>
 
                             <!-- third row with 5 tiles -->
                             <div class="row justify-content-center">
-                                <div class="tile col-4" style="background-image: url(/resources/img/original/sea.png);">
-                                    
-                                </div>
+                                <!-- sea border -->
+                                <div class="tile col-4 sea-div sea-div-left"></div>
 
                                 <!-- 8th tile -->
                                 <div class="tile col-2.5" id="map_div_8">
@@ -315,16 +304,14 @@
                                     </div>
                                 </div>
 
-                                <div class="tile col-4" style="background-image: url(/resources/img/original/sea.png);">
-                                    
-                                </div>
+                                <!-- sea border -->
+                                <div class="tile col-4 sea-div sea-div-right"></div>
                             </div>
 
                             <!-- fourth row with 4 tiles -->
                             <div class="row justify-content-center">
-                                <div class="tile col-4" style="background-image: url(/resources/img/original/sea.png);">
-                                    
-                                </div>
+                                <!-- sea border -->
+                                <div class="tile col-4 sea-div sea-div-left"></div>
 
                                 <!-- 13th tile -->
                                 <div class="tile col-3" id="map_div_13">
@@ -366,16 +353,14 @@
                                     </div>
                                 </div>
 
-                                <div class="tile col-4" style="background-image: url(/resources/img/original/sea.png);">
-                                    
-                                </div>
+                                <!-- sea border -->
+                                <div class="tile col-4 sea-div sea-div-right"></div>
                             </div>
 
                             <!-- fifth row with 3 tiles -->
                             <div class="row justify-content-center">
-                                <div class="tile col-4" style="background-image: url(/resources/img/original/sea.png);">
-                                    
-                                </div>
+                                <!-- sea border -->
+                                <div class="tile col-4 sea-div sea-div-left"></div>
 
                                 <!-- 17th tile -->
                                 <div class="tile col-4" id="map_div_17">
@@ -407,27 +392,19 @@
                                     </div>
                                 </div>
 
-                                <div class="tile col-4" style="background-image: url(/resources/img/original/sea.png);">
-                                    
-                                </div>
+                                <!-- sea border -->
+                                <div class="tile col-4 sea-div sea-div-right"></div>
                             </div>
 
+                            <!-- sea bottom border -->
                             <div class="row justify-content-center">
-                                <div class="tile col-4" style="background-image: url(/resources/img/original/sea.png);">
-                                    
-                                </div>
+                                <div class="tile col-4 sea-div"></div>
 
-                                <div class="tile col-4" style="background-image: url(/resources/img/original/sea.png);">
-                                    
-                                </div>
+                                <div class="tile col-4 sea-div"></div>
 
-                                <div class="tile col-4" style="background-image: url(/resources/img/original/sea.png);">
-                                    
-                                </div>
+                                <div class="tile col-4 sea-div"></div>
 
-                                <div class="tile col-4" style="background-image: url(/resources/img/original/sea.png);">
-                                    
-                                </div>
+                                <div class="tile col-4 sea-div"></div>
                             </div>
                         </div>
                     </div>
