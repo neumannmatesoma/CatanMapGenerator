@@ -1,15 +1,11 @@
 .sea-div {
-    background-image: url(/resources/img/original/sea.png);
 }
 
 .sea-div-top {
-    transform: rotate(180deg);
 }
 
 .sea-div-left {
-    transform: rotate(120deg);
 }
 
 .sea-div-right {
-    transform: rotate(240deg);
 }
