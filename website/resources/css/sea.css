@@ -60,3 +60,34 @@
     background-image: url(/resources/img/original/sea/sea_twoway.png);
     transform: rotate(300deg);
 }
+
+/* port div css */
+.port-0 {
+    background-image: url(/resources/img/original/sea/port.png);
+    transform: rotate(0deg);
+}
+
+.port-60 {
+    background-image: url(/resources/img/original/sea/port.png);
+    transform: rotate(60deg);
+}
+
+.port-120 {
+    background-image: url(/resources/img/original/sea/port.png);
+    transform: rotate(120deg);
+}
+
+.port-180 {
+    background-image: url(/resources/img/original/sea/port.png);
+    transform: rotate(1800deg);
+}
+
+.port-240 {
+    background-image: url(/resources/img/original/sea/port.png);
+    transform: rotate(240deg);
+}
+
+.port-300 {
+    background-image: url(/resources/img/original/sea/port.png);
+    transform: rotate(300deg);
+}

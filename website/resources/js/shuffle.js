@@ -3,12 +3,14 @@ var possibility = [".", "..", "...", "....", ".....", "......"]
 function Shuffle() {
     console.clear();
     for (let i = 1; i < 20; i++){
-        let rand_pic = Math.floor(getRandom(0, 6));
+        let rand_pic = getRandom(0, 6);
         var desert_a = picChange(`${ore_types[rand_pic]}`, i);
         console.log(`${i}) ${rand_pic} - ${ore_types[rand_pic]}`);
 
         if (!desert_a){ LoadNumber(i); }
     }
+
+    GenerateBasePorts();
 }
 
 function LoadNumber(i) {

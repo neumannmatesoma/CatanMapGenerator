@@ -1,5 +1,5 @@
 // Random number generator
-function getRandom(min, max) { return Math.random() * (max - min) + min; }
+function getRandom(min, max) { return Math.floor(Math.random() * (max - min) + min); }
 
 // Changes the picture on the selected div
 function picChange(pic, num) {
