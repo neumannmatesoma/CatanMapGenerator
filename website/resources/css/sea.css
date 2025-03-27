@@ -1,11 +1,62 @@
-.sea-div {
+/* one way sea div css */
+.sea-one-way-0 {
+    background-image: url(/resources/img/original/sea/sea_oneway.png);
+    transform: rotate(0deg); 
 }
 
-.sea-div-top {
+.sea-one-way-60 {
+    background-image: url(/resources/img/original/sea/sea_oneway.png);
+    transform: rotate(60deg); 
 }
 
-.sea-div-left {
+.sea-one-way-120 {
+    background-image: url(/resources/img/original/sea/sea_oneway.png);
+    transform: rotate(120deg); 
 }
 
-.sea-div-right {
+.sea-one-way-180 {
+    background-image: url(/resources/img/original/sea/sea_oneway.png);
+    transform: rotate(180deg); 
+}
+
+.sea-one-way-240 {
+    background-image: url(/resources/img/original/sea/sea_oneway.png);
+    transform: rotate(240deg); 
+}
+
+.sea-one-way-300 {
+    background-image: url(/resources/img/original/sea/sea_oneway.png);
+    transform: rotate(300deg); 
+}
+
+
+/* two way sea div css */
+.sea-two-way-0 {
+    background-image: url(/resources/img/original/sea/sea_twoway.png);
+    transform: rotate(0deg);
+}
+
+.sea-two-way-60 {
+    background-image: url(/resources/img/original/sea/sea_twoway.png);
+    transform: rotate(60deg);
+}
+
+.sea-two-way-120 {
+    background-image: url(/resources/img/original/sea/sea_twoway.png);
+    transform: rotate(120deg);
+}
+
+.sea-two-way-180 {
+    background-image: url(/resources/img/original/sea/sea_twoway.png);
+    transform: rotate(180deg);
+}
+
+.sea-two-way-240 {
+    background-image: url(/resources/img/original/sea/sea_twoway.png);
+    transform: rotate(240deg);
+}
+
+.sea-two-way-300 {
+    background-image: url(/resources/img/original/sea/sea_twoway.png);
+    transform: rotate(300deg);
 }
