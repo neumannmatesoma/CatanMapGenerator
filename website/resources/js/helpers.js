@@ -2,11 +2,8 @@
 function getRandom(min, max) { return Math.floor(Math.random() * (max - min) + min); }
 
 // Changes the picture on the selected div
-function picChange(pic, num) {
+function PicChange(pic, num) {
     document.getElementById(`map_div_${num}`).style.backgroundImage = `url(${pic_path + pic}.png)`;
-    if (pic == 'desert') {
-        return true;
-    }
 }
 
 
@@ -17,6 +14,16 @@ function SelectOnChange() {
     pic_path = `/resources/img/${theme}/`;
     console.log(`theme changed - ${theme.value} ${pic_path}`);
 }
+
+
+// Getter for rule checkboxes
+function getRule1() { return document.getElementById("cb1_id").checked; }
+function getRule2() { return document.getElementById("cb2_id").checked; }
+function getRule3() { return document.getElementById("cb3_id").checked; }
+function getRule4() { return document.getElementById("cb4_id").checked; }
+function getRule5() { return document.getElementById("cb5_id").checked; }
+function getRule6() { return document.getElementById("cb6_id").checked; }
+
 
 // CheckBox onChanges
 function CheckBoxOnChange1() {

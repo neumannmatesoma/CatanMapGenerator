@@ -6,8 +6,24 @@ function GenerateBasePorts() {
         var prev_rotation = document.getElementById(div).classList.toString().split(' ')[2];
         var new_rotation = `port-${prev_rotation.toString().split('-')[3]}`;
 
-        PlacePort(div, new_rotation, prev_rotation);
+        if (!document.getElementById(div).classList.contains('port-0') &&
+            !document.getElementById(div).classList.contains('port-60') &&
+            !document.getElementById(div).classList.contains('port-120') &&
+            !document.getElementById(div).classList.contains('port-180') && 
+            !document.getElementById(div).classList.contains('port-240') &&
+            !document.getElementById(div).classList.contains('port-300')){
+            PlacePort(div, new_rotation, prev_rotation);
+        }
+
     }
+}
+
+function GeneratePort(div_num) {
+    var div = `sea-div-${div_num}`;
+    var prev_rotation = document.getElementById(div).classList.toString().split(' ')[2];
+    var new_rotation = `port-${prev_rotation.toString().split('-')[3]}`;
+
+    PlacePort(div, new_rotation, prev_rotation);
 }
 
 function PlacePort(div, div_new_rotation, div_prev_rotation) {
