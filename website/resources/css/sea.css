@@ -1,93 +1,125 @@
 /* one way sea div css */
-.sea-one-way-0 {
-    background-image: url(/resources/img/original/sea/sea_oneway.png);
+.sea-oneway-0 {
+    background-image: url(/resources/img/original/sea/sea_oneway_1.png);
     transform: rotate(0deg); 
 }
 
-.sea-one-way-60 {
-    background-image: url(/resources/img/original/sea/sea_oneway.png);
+.sea-oneway-60 {
+    background-image: url(/resources/img/original/sea/sea_oneway_1.png);
     transform: rotate(60deg); 
 }
 
-.sea-one-way-120 {
-    background-image: url(/resources/img/original/sea/sea_oneway.png);
+.sea-oneway-120 {
+    background-image: url(/resources/img/original/sea/sea_oneway_1.png);
     transform: rotate(120deg); 
 }
 
-.sea-one-way-180 {
-    background-image: url(/resources/img/original/sea/sea_oneway.png);
+.sea-oneway-180 {
+    background-image: url(/resources/img/original/sea/sea_oneway_1.png);
     transform: rotate(180deg); 
 }
 
-.sea-one-way-240 {
-    background-image: url(/resources/img/original/sea/sea_oneway.png);
+.sea-oneway-240 {
+    background-image: url(/resources/img/original/sea/sea_oneway_1.png);
     transform: rotate(240deg); 
 }
 
-.sea-one-way-300 {
-    background-image: url(/resources/img/original/sea/sea_oneway.png);
+.sea-oneway-300 {
+    background-image: url(/resources/img/original/sea/sea_oneway_1.png);
     transform: rotate(300deg); 
 }
 
 
 /* two way sea div css */
-.sea-two-way-0 {
-    background-image: url(/resources/img/original/sea/sea_twoway.png);
+.sea-twoway-0 {
+    background-image: url(/resources/img/original/sea/sea_twoway_1.png);
     transform: rotate(0deg);
 }
 
-.sea-two-way-60 {
-    background-image: url(/resources/img/original/sea/sea_twoway.png);
+.sea-twoway-60 {
+    background-image: url(/resources/img/original/sea/sea_twoway_1.png);
     transform: rotate(60deg);
 }
 
-.sea-two-way-120 {
-    background-image: url(/resources/img/original/sea/sea_twoway.png);
+.sea-twoway-120 {
+    background-image: url(/resources/img/original/sea/sea_twoway_1.png);
     transform: rotate(120deg);
 }
 
-.sea-two-way-180 {
-    background-image: url(/resources/img/original/sea/sea_twoway.png);
+.sea-twoway-180 {
+    background-image: url(/resources/img/original/sea/sea_twoway_1.png);
     transform: rotate(180deg);
 }
 
-.sea-two-way-240 {
-    background-image: url(/resources/img/original/sea/sea_twoway.png);
+.sea-twoway-240 {
+    background-image: url(/resources/img/original/sea/sea_twoway_1.png);
     transform: rotate(240deg);
 }
 
-.sea-two-way-300 {
-    background-image: url(/resources/img/original/sea/sea_twoway.png);
+.sea-twoway-300 {
+    background-image: url(/resources/img/original/sea/sea_twoway_1.png);
     transform: rotate(300deg);
 }
 
-/* port div css */
-.port-0 {
-    background-image: url(/resources/img/original/sea/port.png);
+
+/* one way port div css */
+.port-oneway-0 {
+    background-image: url(/resources/img/original/sea/sea_oneway_port_1.png);
     transform: rotate(0deg);
 }
 
-.port-60 {
-    background-image: url(/resources/img/original/sea/port.png);
+.port-oneway-60 {
+    background-image: url(/resources/img/original/sea/sea_oneway_port_1.png);
     transform: rotate(60deg);
 }
 
-.port-120 {
-    background-image: url(/resources/img/original/sea/port.png);
+.port-oneway-120 {
+    background-image: url(/resources/img/original/sea/sea_oneway_port_1.png);
     transform: rotate(120deg);
 }
 
-.port-180 {
-    background-image: url(/resources/img/original/sea/port.png);
-    transform: rotate(1800deg);
+.port-oneway-180 {
+    background-image: url(/resources/img/original/sea/sea_oneway_port_1.png);
+    transform: rotate(180deg);
 }
 
-.port-240 {
-    background-image: url(/resources/img/original/sea/port.png);
+.port-oneway-240 {
+    background-image: url(/resources/img/original/sea/sea_oneway_port_1.png);
     transform: rotate(240deg);
 }
 
-.port-300 {
-    background-image: url(/resources/img/original/sea/port.png);
+.port-oneway-300 {
+    background-image: url(/resources/img/original/sea/sea_oneway_port_1.png);
+    transform: rotate(300deg);
+}
+
+/* two way port div css */
+.port-twoway-0 {
+    background-image: url(/resources/img/original/sea/sea_twoway_port_1.png);
+    transform: rotate(0deg);
+}
+
+.port-twoway-60 {
+    background-image: url(/resources/img/original/sea/sea_twoway_port_1.png);
+    transform: rotate(60deg);
+}
+
+.port-twoway-120 {
+    background-image: url(/resources/img/original/sea/sea_twoway_port_1.png);
+    transform: rotate(120deg);
+}
+
+.port-twoway-180 {
+    background-image: url(/resources/img/original/sea/sea_twoway_port_1.png);
+    transform: rotate(180deg);
+}
+
+.port-twoway-240 {
+    background-image: url(/resources/img/original/sea/sea_twoway_port_1.png);
+    transform: rotate(240deg);
+}
+
+.port-twoway-300 {
+    background-image: url(/resources/img/original/sea/sea_twoway_port_1.png);
     transform: rotate(300deg);
 }
