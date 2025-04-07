@@ -1,13 +1,13 @@
 # Overview
 ## Description
-As part of my coursework in Spring 2024, I developing a static web application inspired by the classic Catan board game. This project was completed as part of my university topic laboratory course. The topic is called **Catan (board game) Map Generator Online Tool for Balanced Gameplay** and more information can be found about it in <a href="https://www.aut.bme.hu/Task/24-25-tavasz/ZENG-Catan-board-game">english</a> and <a href="https://www.aut.bme.hu/Task/24-25-tavasz/Catan-tarsasjatek-Terkep">hungarian</a>. The project was built using HTML, CSS, JavaScript, and Bootstrap, with a focus on creating a visually engaging and interactive user experience. My goal is to strengthen my front-end development skills while creatively translating the atmosphere of a well-known board game into a digital format. 
+As part of my coursework in Spring 2024, I'm developing a static web application inspired by the classic Catan board game. This project was completed as part of my university topic laboratory course. The topic is called **Catan (board game) Map Generator Online Tool for Balanced Gameplay** and more information can be found about it in <a href="https://www.aut.bme.hu/Task/24-25-tavasz/ZENG-Catan-board-game">english</a> and <a href="https://www.aut.bme.hu/Task/24-25-tavasz/Catan-tarsasjatek-Terkep">hungarian</a>. The project was built using HTML, CSS, JavaScript, and Bootstrap, with a focus on creating a visually engaging and interactive user experience. My goal is to strengthen my front-end development skills while creatively translating the atmosphere of a well-known board game into a digital format. 
 ## Technologies
 - HTML
 - CSS
 - JavaScript
 - Bootstrap
 ## File/folder organization
-I use a generic organization plan for this, which consits of a main **project** folder and inside a **resources** folder. The main project folder containes the HTML files and the resources folder. Inside the resources folder there are folders for **CSS** and **JS**.</br>It should look something like this:</br>
+I followed a generic organization plan for this, which consits of a main **project** folder and inside a **resources** folder. The main project folder containes the HTML files and the resources folder. Inside the resources folder there are folders for **CSS** and **JS**.</br>It should look something like this:</br>
 > main_folder</br>
 > &emsp;mockups</br>
 > &emsp;&emsp;*mockups for design...*</br>
