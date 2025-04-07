@@ -1,0 +1,105 @@
+body {
+    background-color: #D0BA98;
+}
+
+button, select {
+    background-color: transparent;
+}
+
+.highlighted-div {
+    background-color: #BE9D6A;
+}
+
+div {
+    white-space: nowrap;
+}
+
+.div-borders {
+    border: 0.25rem;
+    border-radius: 3rem;
+    border-style: solid;
+    border-color: black;
+}
+
+.base-div-formatting {
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+    padding: 0.5rem;
+    text-align: center;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.title-text-formatting {
+    font-weight: bolder;
+    font-size: 1.5rem;
+    color: black;
+}
+
+.base-text-formatting {
+    font-size: 1.5rem;
+    color: black;
+    font-weight: bold;
+}
+
+.tile {
+    background-color: transparent;
+    background-size: cover;
+    height: 7rem;
+    width: 6rem;
+    margin: -0.8rem 0.1rem -0.8rem 0.1rem;
+}
+
+/* under 639px */
+@media screen and (max-width: 639px) {
+    .tile {
+        background-size: cover;
+        height: 5.3rem;
+        width: 4.3rem;
+        margin: -0.50rem 0.1rem -0.50rem 0.1rem;
+    }
+}
+
+/* between 992px and 1069px */
+@media screen and (max-width: 1012px) {
+    .tile {
+        background-size: cover;
+        height: 5.3rem;
+        width: 4.3rem;
+        margin: 100rem;
+    }
+}
+
+/* between 1070px and 1200px */
+@media screen and (max-width: 1200px) {
+    .tile {
+        background-size: cover;
+        height: 5.5rem;
+        width: 4.5rem;
+        margin: -0.55rem 0.25rem -0.5rem 0.25rem;
+    }
+
+    .map-div-back {
+        background-size: cover;
+        height: 2rem;
+        width: 4rem;
+    }
+}
+
+.map-num-pos-div {
+    margin: 30% 0 50% 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.map-div-back {
+    background-size: cover;
+    height: 4rem;
+}
+
+.map-div-num {
+    padding-top: 15%;
+}
+
+.map-div-dot {
+    margin-top: -0.6rem;
+}
