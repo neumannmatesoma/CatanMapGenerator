@@ -85,7 +85,7 @@ function distributeNumbers(resources) {
 
         // if everything ok logging success and how much attempts it took
         if (success) {
-            console.log(`Számok elosztva ${attempts} próbálkozás után`);
+            console.log(`The numbers were evenly distributed after ${attempts} attempts`);
             return numbers;
         }
 
@@ -94,7 +94,7 @@ function distributeNumbers(resources) {
     }
 
     // fallback to default, random shuffleing if max attempts were exceeded
-    console.warn("Nem sikerült tökéletes elosztás, visszaesés alapértelmezettre");
+    alert(`Failed to distribute evenly, reverted to random generized numbers.\nPlease shuffle again if your are not satisfied with the board.`);
     numbers.fill(null);
     let numIndex = 0;
     for (let i = 0; i < 19; i++) {
