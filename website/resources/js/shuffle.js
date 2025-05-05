@@ -4,14 +4,69 @@ function Shuffle() {
     console.clear();
 
     // allocating resources randomly
-    const resources = shuffleArray([...standardResources]);
+    const resources = allocateResources();
 
     // allocating numbers
     const numbers = distributeNumbers(resources);
 
     // displaying the board
     DisplayBoard(resources, numbers);
+}
 
+// allocates resources following the rules
+function allocateResources() {
+    // the number of the current attempt
+    let attempts = 0;
+    // the number of the maximum attempts
+    const maxAttempts = 10000;
+
+    while (attempts < maxAttempts) {
+        // increase the current attempt counter
+        attempts++;
+
+        // shuffleing the resources
+        const resources = shuffleArray([...standardResources]);
+        
+        // validating resources
+        if (validateResourcePlacement(resources)) {
+            console.log(`The resources were evenly distributed after ${attempts} attempts`);
+            return resources;
+        }
+    }
+    
+    // fallback to default random shuffling if max attempts were exceeded
+    alert(`Failed to distribute resources evenly, reverted to random generized resources.\nPlease shuffle again if your are not satisfied with the board.`);
+    return shuffleArray([...standardResources]);
+}
+
+// validates resource placement according to the rules
+function validateResourcePlacement(resources) {
+    // if rule4 is turned on, same resources can touch
+    if (rule4) {
+        return true; // no need to check
+    }
+
+    // checking if same resources are not touching
+    for (let i = 0; i < 19; i++) {
+        const currentResource = resources[i];
+        const tileNeighbors = neighbors[i + 1];
+
+        // checking all neighbors
+        for (const neighbor of tileNeighbors) {
+            const neighborIndex = neighbor - 1;
+            const neighborResource = resources[neighborIndex];
+
+            // skip if the neighbor doesn't have a resource yet
+            if (neighborResource === undefined) continue;
+
+            // if rule4 is turned off, same resources can't touch
+            if (currentResource === neighborResource && currentResource !== 'desert') {
+                return false;
+            }
+        }
+    }
+
+    return true; // all resources are placed correctly
 }
 
 // displays the whole board
@@ -56,7 +111,7 @@ function distributeNumbers(resources) {
     // the number of the current attempt
     let attempts = 0;
     // the number of the maximum attempts
-    const maxAttempts = 100;
+    const maxAttempts = 1000;
 
     while (attempts < maxAttempts) {
         // increase the current attempt counter

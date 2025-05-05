@@ -49,6 +49,18 @@ div {
     margin: -0.8rem 0.1rem -0.8rem 0.1rem;
 }
 
+/* Javítás: Egyenletes magasság a bal és jobb oldali oszlopoknak */
+.col-sm-12.col-md-12.col-lg-5.col-xl-4.h-100,
+.col-sm-12.col-md-12.col-lg-7.col-xl-8 {
+    display: flex;
+    flex-direction: column;
+}
+
+.col-sm-12.col-md-12.col-lg-5.col-xl-4.h-100 .container-fluid {
+    display: flex;
+    flex-direction: column;
+}
+
 /* under 639px */
 @media screen and (max-width: 639px) {
     .tile {
@@ -65,7 +77,7 @@ div {
         background-size: cover;
         height: 5.3rem;
         width: 4.3rem;
-        margin: 100rem;
+        margin: -0.55rem 0.1rem -0.55rem 0.1rem; /* Javítva a hibás érték (100rem) */
     }
 }
 

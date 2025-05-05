@@ -17,7 +17,7 @@
             <div class="row">
                 <!--left side of the website-->
                 <div class="col-sm-12 col-md-12 col-lg-5 col-xl-4 h-100">
-                    <div class="container-fluid">
+                    <div class="container-fluid d-flex flex-column">
                         <div class="row">
                             <!-- title and buttons -->
                             <div class="col-sm-12 col-md-6 col-lg-12 col-xl-12 justify-content-center">
@@ -25,7 +25,7 @@
                                 <div class="div-borders base-div-formatting text-break justify-content-center highlighted-div">
                                     <h1 class="title-text-formatting">Catan Board Generator</h1>
                                 </div>
-
+                
                                 <!-- buttons -->
                                 <div class="container-fluid justify-content-center">
                                     <!--classic and expansion-->
@@ -34,13 +34,13 @@
                                         <div class="col-sm-6 col-md-12 col-lg-6 col-xl-6 justify-content-center">
                                             <button class="w-100 div-borders base-div-formatting title-text-formatting highlighted-div">Classic</button>
                                         </div>
-
+                
                                         <!-- expansion -->
                                         <div class="col-sm-6 col-md-12 col-lg-6 col-xl-6 justify-content-center">
                                             <button class="w-100 div-borders base-div-formatting title-text-formatting highlighted-div">Expansion</button>
                                         </div>
                                     </div>
-
+                
                                     <!-- shuffle -->
                                     <div class="row justify-content-center">
                                         <button class="col-12 div-borders base-div-formatting title-text-formatting highlighted-div" onclick="Shuffle()">Shuffle</button>
@@ -52,16 +52,16 @@
                                     <b>Szerző:</b>&nbsp;Neumann Máté Soma
                                 </div>
                             </div>
-
+                
                             <!-- options -->
                             <div class="col-sm-12 col-md-6 col-lg-12 col-xl-12">
                                 <div class="div-borders base-div-formatting highlighted-div">
                                     <!-- options title -->
                                     <h1 class="title-text-formatting">Options</h1>
-
+                
                                     <!-- line -->
                                     <div class="line-div"></div>
-
+                
                                     <!-- options content -->
                                     <div class="container-fluid">
                                         <!-- theme selector -->
@@ -78,7 +78,7 @@
                                                 </select>
                                             </div>
                                         </div>
-
+                
                                         <!-- first rule -->
                                         <div class="row d-flex justify-content-start">
                                             <div class="col-10 text-start table-element">
@@ -88,7 +88,7 @@
                                                 <input type="checkbox" class="checkbox-round" name="cb1" id="cb1_id" value="first_rule" onchange="CheckBoxOnChange1()">
                                             </div>
                                         </div>
-
+                
                                         <!-- second rule -->
                                         <div class="row d-flex justify-content-start">
                                             <div class="col-10 text-start table-element">
@@ -98,7 +98,7 @@
                                                 <input type="checkbox" class="checkbox-round" name="cb2" id="cb2_id" value="second_rule" onchange="CheckBoxOnChange2()">
                                             </div>
                                         </div>
-
+                
                                         <!-- third rule -->
                                         <div class="row d-flex justify-content-start">
                                             <div class="col-10 text-start table-element">
@@ -108,7 +108,7 @@
                                                 <input type="checkbox" class="checkbox-round" name="cb3" id="cb3_id" value="third_rule" onchange="CheckBoxOnChange3()">
                                             </div>
                                         </div>
-
+                
                                         <!-- fourth rule -->
                                         <div class="row d-flex justify-content-start">
                                             <div class="col-10 text-start table-element">
@@ -118,7 +118,7 @@
                                                 <input type="checkbox" class="checkbox-round" name="cb4" id="cb4_id" value="fourth_rule" onchange="CheckBoxOnChange4()">
                                             </div>
                                         </div>
-
+                
                                         <!-- fifth rule -->
                                         <div class="row d-flex justify-content-start">
                                             <div class="col-10 text-start table-element">
@@ -128,14 +128,14 @@
                                                 <input type="checkbox" class="checkbox-round" name="cb5" id="cb5_id" value="fifth_rule" onchange="CheckBoxOnChange5()">
                                             </div>
                                         </div>
-
+                
                                         <!-- sixth rule -->
                                         <div class="row d-flex justify-content-start">
                                             <div class="col-9 text-start table-element">
                                                 <label for="cb6" class="rule-text">At least one different neighbor</label>
                                             </div>
                                             <div class="col-3 table-element">
-                                                <input type="checkbox" class="checkbox-round" name="cb6"  id="cb6_id" value="sixth_rule" onchange="CheckBoxOnChange6()">
+                                                <input type="checkbox" class="checkbox-round" name="cb6" id="cb6_id" value="sixth_rule" onchange="CheckBoxOnChange6()">
                                             </div>
                                         </div>
                                     </div>
