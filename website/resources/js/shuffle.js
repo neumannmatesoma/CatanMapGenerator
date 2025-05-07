@@ -24,7 +24,7 @@ function allocateResources() {
         // increase the current attempt counter
         attempts++;
 
-        // shuffleing the resources
+        // shuffling the resources
         const resources = shuffleArray([...standardResources]);
         
         // validating resources
@@ -35,7 +35,7 @@ function allocateResources() {
     }
     
     // fallback to default random shuffling if max attempts were exceeded
-    alert(`Failed to distribute resources evenly, reverted to random generized resources.\nPlease shuffle again if your are not satisfied with the board.`);
+    showModal(`Failed to distribute resources evenly, reverted to random generized resources.\nPlease shuffle again if your are not satisfied with the board.`);
     return shuffleArray([...standardResources]);
 }
 
@@ -95,15 +95,15 @@ function DisplayBoard(resources, numbers) {
         }
     }
 
-    // generating ports
-    GenerateBasePorts();
+    if (getRule5()) { GenerateRandomPorts(); } // generating ports randomly
+    else { GenerateBasePorts(); } // generating base ports
 }
 
-// placing nunbers with regulations
+// placing numbers with regulations
 function distributeNumbers(resources) {
     // 19 element long array which stores a possibility number for every tile
     const numbers = new Array(19).fill(null);
-    // shuffleing the possible numbers
+    // shuffling the possible numbers
     const shuffledNumbers = shuffleArray([...standardNumbers]);
     // searching for desert's position
     const desertIndex = resources.indexOf('desert');
@@ -111,14 +111,13 @@ function distributeNumbers(resources) {
     // the number of the current attempt
     let attempts = 0;
     // the number of the maximum attempts
-    const maxAttempts = 1000;
+    const maxAttempts = 10000;
 
     while (attempts < maxAttempts) {
         // increase the current attempt counter
         attempts++;
 
-        // reseting numbers array on every attempt
-        // restarting the distribution of numbers
+        // resetting numbers array on every attempt
         numbers.fill(null);
         let success = true;
         let numIndex = 0;
@@ -138,7 +137,13 @@ function distributeNumbers(resources) {
             }
         }
 
-        // if everything ok logging success and how much attempts it took
+        // if everything ok, check the new rule6 (Resource Diversity Rule)
+        if (success) {
+            if (rule6 && !checkResourceWidth(resources, numbers)) {
+                success = false; // if rule6 fails, retry
+            }
+        }
+
         if (success) {
             console.log(`The numbers were evenly distributed after ${attempts} attempts`);
             return numbers;
@@ -148,8 +153,8 @@ function distributeNumbers(resources) {
         shuffleArray(shuffledNumbers);
     }
 
-    // fallback to default, random shuffleing if max attempts were exceeded
-    alert(`Failed to distribute evenly, reverted to random generized numbers.\nPlease shuffle again if your are not satisfied with the board.`);
+    // fallback to default, random shuffling if max attempts were exceeded
+    showModal(`Failed to distribute evenly, reverted to random generized numbers.\nPlease shuffle again if your are not satisfied with the board.`);
     numbers.fill(null);
     let numIndex = 0;
     for (let i = 0; i < 19; i++) {
@@ -222,4 +227,65 @@ function RollCalculator(num) {
         12: 1
     };
     return rollValues[num];
+}
+
+// checks if each resource has at least two different numbers associated with it
+function checkResourceWidth(resources, numbers) {
+    const resourceNumbers = {
+        'wood': new Set(),
+        'brick': new Set(),
+        'wheat': new Set(),
+        'sheep': new Set(),
+        'ore': new Set()
+    };
+
+    // iterate through the board to collect numbers for each resource
+    for (let i = 0; i < 19; i++) {
+        if (resources[i] === 'desert' || numbers[i] === null) continue; // skip desert and unassigned numbers
+        if (!resourceNumbers.hasOwnProperty(resources[i])) {
+            console.warn(`Unknown resource encountered: ${resources[i]} at index ${i}`);
+            continue; // skip unknown resources to avoid error
+        }
+        resourceNumbers[resources[i]].add(numbers[i]);
+    }
+
+    // check if each resource has at least two different numbers
+    for (let resource in resourceNumbers) {
+        const uniqueNumbers = resourceNumbers[resource].size;
+        console.log(`Resource ${resource} has ${uniqueNumbers} unique numbers: ${[...resourceNumbers[resource]].join(', ')}`);
+        if (uniqueNumbers < 2) {
+            console.log(`Rule 6 (Resource Diversity Rule) failed for ${resource}`);
+            return false; // fails if any resource has fewer than 2 different numbers
+        }
+    }
+
+    console.log("Rule 6 (Resource Diversity Rule) passed for all resources");
+    return true; // passes if all resources have at least 2 different numbers
+}
+
+function showModal(message) {
+    // Előző backdrop eltávolítása, ha van
+    document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+
+    // Biztosítsuk, hogy a modal ne legyen nyitva újra, ha már az
+    const alertModalElement = document.getElementById('alertModal');
+    const existingModal = bootstrap.Modal.getInstance(alertModalElement);
+    if (existingModal) {
+        existingModal.hide();
+    }
+
+    // Szöveg beállítása
+    const modalBody = document.getElementById('alertModalBody');
+    modalBody.textContent = message;
+
+    // Új modal példány
+    const modal = new bootstrap.Modal(alertModalElement);
+    modal.show();
+
+    // ✨ Modal zárásakor eltávolítjuk az esetlegesen ottmaradt háttér és tiltásokat
+    alertModalElement.addEventListener('hidden.bs.modal', () => {
+        document.body.classList.remove('modal-open');
+        document.body.style.overflow = 'auto';
+        document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+    }, { once: true }); // csak egyszer fusson le
 }

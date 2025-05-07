@@ -42,18 +42,6 @@ div {
     font-weight: bold;
 }
 
-/* Alapbeállítások a hexagonoknak */
-.tile {
-    background-color: transparent;
-    background-size: cover;
-    height: 7rem;
-    width: 6rem;
-    margin: -0.8rem 0.1rem -0.8rem 0.1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .col-sm-12.col-md-12.col-lg-5.col-xl-4.h-100,
 .col-sm-12.col-md-12.col-lg-7.col-xl-8 {
     display: flex;
@@ -71,51 +59,20 @@ div {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow: visible; /* A szülőelem ne vágja le a tile-okat */
 }
 
 .map-grid .row {
     width: 100%;
     display: flex;
     justify-content: center;
+    overflow: visible; /* A sorok se vágják le a tile-okat */
 }
 
-/* Javított pozicionálás a hexagon tartalmakhoz */
-.map-num-pos-div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    height: 100%;
-    width: 100%;
-    font-size: 1.1rem;
-    font-weight: bold;
-}
-
-.map-div-back {
-    background-size: cover;
-    height: 4rem;
-    width: 4rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.map-div-num {
-    text-align: center;
-}
-
-.map-div-dot {
-    text-align: center;
-    margin-top: -0.3rem;
-}
-
-/* Nagyobb képernyő (1200px felett) */
-@media screen and (min-width: 1201px) {
-    .tile {
-        height: 7rem;
-        width: 6rem;
-        margin: -0.8rem 0.1rem -0.8rem 0.1rem;
+/* Az 1347px–1200px tartományban finomhangolás */
+@media screen and (max-width: 1348px) and (min-width: 1201px) {
+    .map-grid .row:nth-child(odd) {
+        transform: translateX(0); /* Eltávolítjuk az eltolást, hogy ne legyen átfedés */
     }
 }
 
@@ -132,13 +89,17 @@ div {
 
     .tile {
         background-color: transparent;
-        background-size: cover;
+        background-size: contain; /* Frissítve contain-re */
+        background-repeat: no-repeat;
+        background-position: center;
         height: 6rem;
         width: 5rem;
         margin: -0.6rem 0.15rem -0.6rem 0.15rem;
         display: flex;
         justify-content: center;
         align-items: center;
+        border-radius: 0;
+        overflow: visible;
     }
 
     .map-div-back {
@@ -170,13 +131,17 @@ div {
 
     .tile {
         background-color: transparent;
-        background-size: cover;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
         height: 5rem;
         width: 4rem;
         margin: -0.5rem 0.2rem -0.5rem 0.2rem;
         display: flex;
         justify-content: center;
         align-items: center;
+        border-radius: 0;
+        overflow: visible;
     }
 
     .map-div-back {
@@ -208,13 +173,17 @@ div {
 
     .tile {
         background-color: transparent;
-        background-size: cover;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
         height: 4rem;
         width: 3rem;
         margin: -0.5rem 0.2rem -0.5rem 0.2rem;
         display: flex;
         justify-content: center;
         align-items: center;
+        border-radius: 0;
+        overflow: visible;
     }
 
     .map-div-back {
@@ -237,4 +206,13 @@ div {
         margin-top: -0.8rem;
         font-size: 0.7rem;
     }
+}
+
+.modal-body {
+    white-space: pre-wrap; /* sortörés + \n megtartása */
+    word-wrap: break-word; /* hosszú szavakat is törjön */
+    background-color: #D0BA98;
+}
+.modal-header, .modal-footer {
+    background-color: #BE9D6A;
 }

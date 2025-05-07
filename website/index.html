@@ -1,142 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Catan Board Generator</title>
-        <link rel="icon" type="image/x-icon" href="./resources/img/logo.png">
 
-        <!--CSS import-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <link rel="stylesheet" href="./resources/css/style.css">
-        <link rel="stylesheet" href="./resources/css/options.css">
-        <link rel="stylesheet" href="./resources/css/sea.css">
-    </head>
-    <body onload="init()">
-        <div class="container-fluid align-content-center mt-3 mb-3">
-            <div class="row">
-                <!--left side of the website-->
-                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-4 h-100">
-                    <div class="container-fluid d-flex flex-column">
-                        <div class="row">
-                            <!-- title and buttons -->
-                            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-12 justify-content-center">
-                                <!-- title div -->
-                                <div class="div-borders base-div-formatting text-break justify-content-center highlighted-div">
-                                    <h1 class="title-text-formatting">Catan Board Generator</h1>
-                                </div>
-                
-                                <!-- buttons -->
-                                <div class="container-fluid justify-content-center">
-                                    <!--classic and expansion-->
-                                    <div class="row">
-                                        <!-- classic -->
-                                        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6 justify-content-center">
-                                            <button class="w-100 div-borders base-div-formatting title-text-formatting highlighted-div">Classic</button>
-                                        </div>
-                
-                                        <!-- expansion -->
-                                        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6 justify-content-center">
-                                            <button class="w-100 div-borders base-div-formatting title-text-formatting highlighted-div">Expansion</button>
-                                        </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catan Board Generator</title>
+    <link rel="icon" type="image/x-icon" href="./resources/img/logo.png">
+
+    <!--CSS import-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./resources/css/style.css">
+    <link rel="stylesheet" href="./resources/css/options.css">
+    <link rel="stylesheet" href="./resources/css/sea.css">
+    <link rel="stylesheet" href="./resources/css/tile.css">
+</head>
+
+<body onload="init()">
+    <div class="container-fluid align-content-center mt-3 mb-3">
+        <div class="row">
+            <!--left side of the website-->
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-4 h-100">
+                <div class="container-fluid d-flex flex-column">
+                    <div class="row">
+                        <!-- title and buttons -->
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-12 justify-content-center">
+                            <!-- title div -->
+                            <div
+                                class="div-borders base-div-formatting text-break justify-content-center highlighted-div">
+                                <h1 class="title-text-formatting">Catan Board Generator</h1>
+                            </div>
+
+                            <!-- buttons -->
+                            <div class="container-fluid justify-content-center">
+                                <!--classic and expansion-->
+                                <div class="row">
+                                    <!-- classic -->
+                                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6 justify-content-center">
+                                        <button
+                                            class="w-100 div-borders base-div-formatting title-text-formatting highlighted-div">Classic</button>
                                     </div>
-                
-                                    <!-- shuffle -->
-                                    <div class="row justify-content-center">
-                                        <button class="col-12 div-borders base-div-formatting title-text-formatting highlighted-div" onclick="Shuffle()">Shuffle</button>
+
+                                    <!-- expansion -->
+                                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6 justify-content-center">
+                                        <button
+                                            class="w-100 div-borders base-div-formatting title-text-formatting highlighted-div">Expansion</button>
                                     </div>
                                 </div>
-                                
-                                <!-- credentials -->
-                                <div class="div-borders base-div-formatting d-flex justify-content-center align-items-center highlighted-div" style="margin-top: 1rem; font-size: 1.2rem;">
-                                    <b>Szerző:</b>&nbsp;Neumann Máté Soma
+
+                                <!-- shuffle -->
+                                <div class="row justify-content-center">
+                                    <button
+                                        class="col-12 div-borders base-div-formatting title-text-formatting highlighted-div"
+                                        onclick="Shuffle()">Shuffle</button>
                                 </div>
                             </div>
-                
-                            <!-- options -->
-                            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-12">
-                                <div class="div-borders base-div-formatting highlighted-div">
-                                    <!-- options title -->
-                                    <h1 class="title-text-formatting">Options</h1>
-                
-                                    <!-- line -->
-                                    <div class="line-div"></div>
-                
-                                    <!-- options content -->
-                                    <div class="container-fluid">
-                                        <!-- theme selector -->
-                                        <div class="row d-flex justify-content-start">
-                                            <div class="col-8 text-start table-element">
-                                                <label for="theme-selector" class="rule-text align-middle">Card Style</label>
-                                            </div>
-                                            <div class="col-3 table-element justify-content-center">
-                                                <select name="theme-selector" id="theme_selector_id" onchange="SelectOnChange()">
-                                                    <option value="original">Original</option>
-                                                    <option value="graphics">Graphics</option>
-                                                    <option value="realistic">Realistic</option>
-                                                    <option value="ai">AI</option>
-                                                </select>
-                                            </div>
+
+                            <!-- credentials -->
+                            <div class="div-borders base-div-formatting d-flex justify-content-center align-items-center highlighted-div"
+                                style="margin-top: 1rem; font-size: 1.2rem;">
+                                <b>Szerző:</b>&nbsp;Neumann Máté Soma
+                            </div>
+                        </div>
+
+                        <!-- options -->
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-12">
+                            <div class="div-borders base-div-formatting highlighted-div">
+                                <!-- options title -->
+                                <h1 class="title-text-formatting">Options</h1>
+
+                                <!-- line -->
+                                <div class="line-div"></div>
+
+                                <!-- options content -->
+                                <div class="container-fluid">
+                                    <!-- theme selector -->
+                                    <div class="row d-flex justify-content-start">
+                                        <div class="col-8 text-start table-element">
+                                            <label for="theme-selector" class="rule-text align-middle">Card
+                                                Style</label>
                                         </div>
-                
-                                        <!-- first rule -->
-                                        <div class="row d-flex justify-content-start">
-                                            <div class="col-10 text-start table-element">
-                                                <label for="cb1" class="rule-text">6 & 8 can touch</label>
-                                            </div>
-                                            <div class="col-2 text-start table-element">
-                                                <input type="checkbox" class="checkbox-round" name="cb1" id="cb1_id" value="first_rule" onchange="CheckBoxOnChange1()">
-                                            </div>
+                                        <div class="col-3 table-element justify-content-center">
+                                            <select name="theme-selector" id="theme_selector_id"
+                                                onchange="SelectOnChange()">
+                                                <option value="original">Original</option>
+                                                <option value="graphics">Graphics</option>
+                                                <option value="realistic">Realistic</option>
+                                                <option value="ai">AI</option>
+                                            </select>
                                         </div>
-                
-                                        <!-- second rule -->
-                                        <div class="row d-flex justify-content-start">
-                                            <div class="col-10 text-start table-element">
-                                                <label for="cb2" class="rule-text">2 & 12 can touch</label>
-                                            </div>
-                                            <div class="col-2 text-start table-element">
-                                                <input type="checkbox" class="checkbox-round" name="cb2" id="cb2_id" value="second_rule" onchange="CheckBoxOnChange2()">
-                                            </div>
+                                    </div>
+
+                                    <!-- first rule -->
+                                    <div class="row d-flex justify-content-start">
+                                        <div class="col-10 text-start table-element">
+                                            <label for="cb1" class="rule-text">6 & 8 can touch</label>
                                         </div>
-                
-                                        <!-- third rule -->
-                                        <div class="row d-flex justify-content-start">
-                                            <div class="col-10 text-start table-element">
-                                                <label for="cb3" class="rule-text">Same numbers can touch</label>
-                                            </div>
-                                            <div class="col-2 text-start table-element">
-                                                <input type="checkbox" class="checkbox-round" name="cb3" id="cb3_id" value="third_rule" onchange="CheckBoxOnChange3()">
-                                            </div>
+                                        <div class="col-2 text-start table-element">
+                                            <input type="checkbox" class="checkbox-round" name="cb1" id="cb1_id"
+                                                value="first_rule" onchange="CheckBoxOnChange1()">
                                         </div>
-                
-                                        <!-- fourth rule -->
-                                        <div class="row d-flex justify-content-start">
-                                            <div class="col-10 text-start table-element">
-                                                <label for="cb4" class="rule-text">Same resources can touch</label>
-                                            </div>
-                                            <div class="col-2 text-start table-element">
-                                                <input type="checkbox" class="checkbox-round" name="cb4" id="cb4_id" value="fourth_rule" onchange="CheckBoxOnChange4()">
-                                            </div>
+                                    </div>
+
+                                    <!-- second rule -->
+                                    <div class="row d-flex justify-content-start">
+                                        <div class="col-10 text-start table-element">
+                                            <label for="cb2" class="rule-text">2 & 12 can touch</label>
                                         </div>
-                
-                                        <!-- fifth rule -->
-                                        <div class="row d-flex justify-content-start">
-                                            <div class="col-10 text-start table-element">
-                                                <label for="cb5" class="rule-text">Ramdomize ports</label>
-                                            </div>
-                                            <div class="col-2 text-start table-element">
-                                                <input type="checkbox" class="checkbox-round" name="cb5" id="cb5_id" value="fifth_rule" onchange="CheckBoxOnChange5()">
-                                            </div>
+                                        <div class="col-2 text-start table-element">
+                                            <input type="checkbox" class="checkbox-round" name="cb2" id="cb2_id"
+                                                value="second_rule" onchange="CheckBoxOnChange2()">
                                         </div>
-                
-                                        <!-- sixth rule -->
-                                        <div class="row d-flex justify-content-start">
-                                            <div class="col-9 text-start table-element">
-                                                <label for="cb6" class="rule-text">At least one different neighbor</label>
-                                            </div>
-                                            <div class="col-3 table-element">
-                                                <input type="checkbox" class="checkbox-round" name="cb6" id="cb6_id" value="sixth_rule" onchange="CheckBoxOnChange6()">
-                                            </div>
+                                    </div>
+
+                                    <!-- third rule -->
+                                    <div class="row d-flex justify-content-start">
+                                        <div class="col-10 text-start table-element">
+                                            <label for="cb3" class="rule-text">Same numbers can touch</label>
+                                        </div>
+                                        <div class="col-2 text-start table-element">
+                                            <input type="checkbox" class="checkbox-round" name="cb3" id="cb3_id"
+                                                value="third_rule" onchange="CheckBoxOnChange3()">
+                                        </div>
+                                    </div>
+
+                                    <!-- fourth rule -->
+                                    <div class="row d-flex justify-content-start">
+                                        <div class="col-10 text-start table-element">
+                                            <label for="cb4" class="rule-text">Same resources can touch</label>
+                                        </div>
+                                        <div class="col-2 text-start table-element">
+                                            <input type="checkbox" class="checkbox-round" name="cb4" id="cb4_id"
+                                                value="fourth_rule" onchange="CheckBoxOnChange4()">
+                                        </div>
+                                    </div>
+
+                                    <!-- fifth rule -->
+                                    <div class="row d-flex justify-content-start">
+                                        <div class="col-10 text-start table-element">
+                                            <label for="cb5" class="rule-text">Ramdomize ports</label>
+                                        </div>
+                                        <div class="col-2 text-start table-element">
+                                            <input type="checkbox" class="checkbox-round" name="cb5" id="cb5_id"
+                                                value="fifth_rule" onchange="CheckBoxOnChange5()">
+                                        </div>
+                                    </div>
+
+                                    <!-- sixth rule -->
+                                    <div class="row d-flex justify-content-start">
+                                        <div class="col-10 text-start table-element">
+                                            <label for="cb6" class="rule-text">Varied resource numbers</label>
+                                        </div>
+                                        <div class="col-2 text-start table-element">
+                                            <input type="checkbox" class="checkbox-round" name="cb6" id="cb6_id"
+                                                value="sixth_rule" onchange="CheckBoxOnChange6()">
                                         </div>
                                     </div>
                                 </div>
@@ -144,278 +161,302 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!--right side of the website-->
-                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-8">
-                    <div class="div-borders base-div-formatting h-100 d-flex justify-content-center align-items-center highlighted-div asd">
-                        <!-- grid for the map -->
-                        <div class="container-fluid map-grid" style="padding: 0.2rem; margin-top: 0.3rem;">
-                            <!-- top sea border -->
-                            <div class="row justify-content-center">
-                                <div class="tile col-4 sea-oneway-120" id="sea-div-1"></div>
+            <!--right side of the website-->
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-8" style="height: 95vh; overflow: visible;";>
+                <div
+                    class="div-borders base-div-formatting h-100 d-flex justify-content-center align-items-center highlighted-div asd">
+                    <!-- grid for the map -->
+                    <div class="container-fluid map-grid" style="padding: 0.2rem; margin-top: 0.3rem;">
+                        <!-- top sea border -->
+                        <div class="row justify-content-center">
+                            <div class="tile col-4 sea-oneway-120" id="sea-div-1"></div>
 
-                                <div class="tile col-4 sea-twoway-180" id="sea-div-2"></div>
+                            <div class="tile col-4 sea-twoway-180" id="sea-div-2"></div>
 
-                                <div class="tile col-4 sea-twoway-180" id="sea-div-3"></div>
+                            <div class="tile col-4 sea-twoway-180" id="sea-div-3"></div>
 
-                                <div class="tile col-4 sea-oneway-180" id="sea-div-4"></div>
+                            <div class="tile col-4 sea-oneway-180" id="sea-div-4"></div>
+                        </div>
+
+                        <!-- first row with 3 tiles -->
+                        <div class="row justify-content-center">
+                            <!-- sea border -->
+                            <div class="tile col-4 sea-twoway-120" id="sea-div-5"></div>
+
+                            <!-- 1st tile -->
+                            <div class="tile col-4" id="map_div_1">
+                                <div class="justify-content-center map-num-pos-div align-items-center">
+                                    <div class="map-div-back" id="map_div_1_back">
+                                        <div class="map-div-num" id="map_div_1_num"> </div>
+                                        <div class="map-div-dot" id="map_div_1_dot"> </div>
+                                    </div>
+                                </div>
                             </div>
 
-                            <!-- first row with 3 tiles -->
-                            <div class="row justify-content-center">
-                                <!-- sea border -->
-                                <div class="tile col-4 sea-twoway-120" id="sea-div-5"></div>
-
-                                <!-- 1st tile -->
-                                <div class="tile col-4" id="map_div_1">
-                                    <div class="justify-content-center map-num-pos-div align-items-center">
-                                        <div class="map-div-back" id="map_div_1_back">
-                                            <div class="map-div-num" id="map_div_1_num"> </div>
-                                            <div class="map-div-dot" id="map_div_1_dot" > </div>
-                                        </div>
+                            <!-- 2nd tile -->
+                            <div class="tile col-4" id="map_div_2">
+                                <div class="justify-content-center map-num-pos-div">
+                                    <div class="map-div-back" id="map_div_2_back">
+                                        <div class="map-div-num" id="map_div_2_num"> </div>
+                                        <div class="map-div-dot" id="map_div_2_dot"> </div>
                                     </div>
                                 </div>
-
-                                <!-- 2nd tile -->
-                                <div class="tile col-4" id="map_div_2">
-                                    <div class="justify-content-center map-num-pos-div">
-                                        <div class="map-div-back" id="map_div_2_back">
-                                            <div class="map-div-num" id="map_div_2_num"> </div>
-                                            <div class="map-div-dot" id="map_div_2_dot"> </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- 3rd tile -->
-                                <div class="tile col-4" id="map_div_3">
-                                    <div class="justify-content-center map-num-pos-div">
-                                        <div class="map-div-back" id="map_div_3_back">
-                                            <div class="map-div-num" id="map_div_3_num"> </div>
-                                            <div class="map-div-dot" id="map_div_3_dot"> </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- sea border -->
-                                <div class="tile col-4 sea-twoway-240" id="sea-div-6"></div>
                             </div>
 
-                            <!-- second row with 4 tiles -->
-                            <div class="row justify-content-center">
-                                <!-- sea border -->
-                                <div class="tile col-4 sea-twoway-120" id="sea-div-7"></div>
-
-                                <!-- 4th tile -->
-                                <div class="tile col-3" id="map_div_4">
-                                    <div class="justify-content-center map-num-pos-div">
-                                        <div class="map-div-back" id="map_div_4_back">
-                                            <div class="map-div-num" id="map_div_4_num"> </div>
-                                            <div class="map-div-dot" id="map_div_4_dot"> </div>
-                                        </div>
+                            <!-- 3rd tile -->
+                            <div class="tile col-4" id="map_div_3">
+                                <div class="justify-content-center map-num-pos-div">
+                                    <div class="map-div-back" id="map_div_3_back">
+                                        <div class="map-div-num" id="map_div_3_num"> </div>
+                                        <div class="map-div-dot" id="map_div_3_dot"> </div>
                                     </div>
                                 </div>
-
-                                <!-- 5th tile -->
-                                <div class="tile col-3" id="map_div_5">
-                                    <div class="justify-content-center map-num-pos-div">
-                                        <div class="map-div-back" id="map_div_5_back">
-                                            <div class="map-div-num" id="map_div_5_num"> </div>
-                                            <div class="map-div-dot" id="map_div_5_dot"> </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- 6th tile -->
-                                <div class="tile col-3" id="map_div_6">
-                                    <div class="justify-content-center map-num-pos-div">
-                                        <div class="map-div-back" id="map_div_6_back">
-                                            <div class="map-div-num" id="map_div_6_num"> </div>
-                                            <div class="map-div-dot" id="map_div_6_dot"> </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- 7th tile -->
-                                <div class="tile col-3" id="map_div_7">
-                                    <div class="justify-content-center map-num-pos-div">
-                                        <div class="map-div-back" id="map_div_7_back">
-                                            <div class="map-div-num" id="map_div_7_num"> </div>
-                                            <div class="map-div-dot" id="map_div_7_dot"> </div> 
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- sea border -->
-                                <div class="tile col-4 sea-twoway-240" id="sea-div-8"></div>
                             </div>
 
-                            <!-- third row with 5 tiles -->
-                            <div class="row justify-content-center">
-                                <!-- sea border -->
-                                <div class="tile col-4 sea-oneway-60" id="sea-div-9"></div>
+                            <!-- sea border -->
+                            <div class="tile col-4 sea-twoway-240" id="sea-div-6"></div>
+                        </div>
 
-                                <!-- 8th tile -->
-                                <div class="tile col-2.5" id="map_div_8">
-                                    <div class="justify-content-center map-num-pos-div">
-                                        <div class="map-div-back" id="map_div_8_back">
-                                            <div class="map-div-num" id="map_div_8_num"> </div>
-                                            <div class="map-div-dot" id="map_div_8_dot"> </div>
-                                        </div>
+                        <!-- second row with 4 tiles -->
+                        <div class="row justify-content-center">
+                            <!-- sea border -->
+                            <div class="tile col-4 sea-twoway-120" id="sea-div-7"></div>
+
+                            <!-- 4th tile -->
+                            <div class="tile col-3" id="map_div_4">
+                                <div class="justify-content-center map-num-pos-div">
+                                    <div class="map-div-back" id="map_div_4_back">
+                                        <div class="map-div-num" id="map_div_4_num"> </div>
+                                        <div class="map-div-dot" id="map_div_4_dot"> </div>
                                     </div>
                                 </div>
-
-                                <!-- 9th tile -->
-                                <div class="tile col-2.5" id="map_div_9">
-                                    <div class="justify-content-center map-num-pos-div">
-                                        <div class="map-div-back" id="map_div_9_back">
-                                            <div class="map-div-num" id="map_div_9_num"> </div>
-                                            <div class="map-div-dot" id="map_div_9_dot"> </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- 10th tile -->
-                                <div class="tile col-2.5" id="map_div_10">
-                                    <div class="justify-content-center map-num-pos-div">
-                                        <div class="map-div-back" id="map_div_10_back">
-                                            <div class="map-div-num" id="map_div_10_num"> </div>
-                                            <div class="map-div-dot" id="map_div_10_dot"> </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- 11th tile -->
-                                <div class="tile col-2.5" id="map_div_11">
-                                    <div class="justify-content-center map-num-pos-div">
-                                        <div class="map-div-back" id="map_div_11_back">
-                                            <div class="map-div-num" id="map_div_11_num"> </div>
-                                            <div class="map-div-dot" id="map_div_11_dot"> </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- 12th tile -->
-                                <div class="tile col-2.5" id="map_div_12">
-                                    <div class="justify-content-center map-num-pos-div">
-                                        <div class="map-div-back" id="map_div_12_back">
-                                            <div class="map-div-num" id="map_div_12_num"> </div>
-                                            <div class="map-div-dot" id="map_div_12_dot"> </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- sea border -->
-                                <div class="tile col-4 sea-oneway-240" id="sea-div-10"></div>
                             </div>
 
-                            <!-- fourth row with 4 tiles -->
-                            <div class="row justify-content-center">
-                                <!-- sea border -->
-                                <div class="tile col-3 sea-twoway-60" id="sea-div-11"></div>
-
-                                <!-- 13th tile -->
-                                <div class="tile col-3" id="map_div_13">
-                                    <div class="justify-content-center map-num-pos-div">
-                                        <div class="map-div-back" id="map_div_13_back">
-                                            <div class="map-div-num" id="map_div_13_num"> </div>
-                                            <div class="map-div-dot" id="map_div_13_dot"> </div>
-                                        </div>
+                            <!-- 5th tile -->
+                            <div class="tile col-3" id="map_div_5">
+                                <div class="justify-content-center map-num-pos-div">
+                                    <div class="map-div-back" id="map_div_5_back">
+                                        <div class="map-div-num" id="map_div_5_num"> </div>
+                                        <div class="map-div-dot" id="map_div_5_dot"> </div>
                                     </div>
                                 </div>
-
-                                <!-- 14th tile -->
-                                <div class="tile col-3" id="map_div_14">
-                                    <div class="justify-content-center map-num-pos-div">
-                                        <div class="map-div-back" id="map_div_14_back">
-                                            <div class="map-div-num" id="map_div_14_num"> </div>
-                                            <div class="map-div-dot" id="map_div_14_dot"> </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- 15th tile -->
-                                <div class="tile col-3" id="map_div_15">
-                                    <div class="justify-content-center map-num-pos-div">
-                                        <div class="map-div-back" id="map_div_15_back">
-                                            <div class="map-div-num" id="map_div_15_num"> </div>
-                                            <div class="map-div-dot" id="map_div_15_dot"> </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- 16th tile -->
-                                <div class="tile col-3" id="map_div_16">
-                                    <div class="justify-content-center map-num-pos-div">
-                                        <div class="map-div-back" id="map_div_16_back">
-                                            <div class="map-div-num" id="map_div_16_num"> </div>
-                                            <div class="map-div-dot" id="map_div_16_dot"> </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- sea border -->
-                                <div class="tile col-3 sea-twoway-300" id="sea-div-12"></div>
                             </div>
 
-                            <!-- fifth row with 3 tiles -->
-                            <div class="row justify-content-center">
-                                <!-- sea border -->
-                                <div class="tile col-4 sea-twoway-60" id="sea-div-13"></div>
-
-                                <!-- 17th tile -->
-                                <div class="tile col-4" id="map_div_17">
-                                    <div class="justify-content-center map-num-pos-div">
-                                        <div class="map-div-back" id="map_div_17_back">
-                                            <div class="map-div-num" id="map_div_17_num"> </div>
-                                            <div class="map-div-dot" id="map_div_17_dot"> </div> 
-                                        </div>
+                            <!-- 6th tile -->
+                            <div class="tile col-3" id="map_div_6">
+                                <div class="justify-content-center map-num-pos-div">
+                                    <div class="map-div-back" id="map_div_6_back">
+                                        <div class="map-div-num" id="map_div_6_num"> </div>
+                                        <div class="map-div-dot" id="map_div_6_dot"> </div>
                                     </div>
                                 </div>
-
-                                <!-- 18th tile -->
-                                <div class="tile col-4" id="map_div_18">
-                                    <div class="justify-content-center map-num-pos-div">
-                                        <div class="map-div-back" id="map_div_18_back">
-                                            <div class="map-div-num" id="map_div_18_num"> </div>
-                                            <div class="map-div-dot" id="map_div_18_dot"> </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- 19th tile -->
-                                <div class="tile col-4" id="map_div_19">
-                                    <div class="justify-content-center map-num-pos-div">
-                                        <div class="map-div-back" id="map_div_19_back">
-                                            <div class="map-div-num" id="map_div_19_num"> </div>
-                                            <div class="map-div-dot" id="map_div_19_dot"> </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- sea border -->
-                                <div class="tile col-4 sea-twoway-300" id="sea-div-14"></div>
                             </div>
 
-                            <!-- sea bottom border -->
-                            <div class="row justify-content-center">
-                                <div class="tile col-4 sea-oneway-0" id="sea-div-15"></div>
-
-                                <div class="tile col-4 sea-twoway-0" id="sea-div-16"></div>
-
-                                <div class="tile col-4 sea-twoway-0" id="sea-div-17"></div>
-
-                                <div class="tile col-4 sea-oneway-300" id="sea-div-18"></div>
+                            <!-- 7th tile -->
+                            <div class="tile col-3" id="map_div_7">
+                                <div class="justify-content-center map-num-pos-div">
+                                    <div class="map-div-back" id="map_div_7_back">
+                                        <div class="map-div-num" id="map_div_7_num"> </div>
+                                        <div class="map-div-dot" id="map_div_7_dot"> </div>
+                                    </div>
+                                </div>
                             </div>
+
+                            <!-- sea border -->
+                            <div class="tile col-4 sea-twoway-240" id="sea-div-8"></div>
+                        </div>
+
+                        <!-- third row with 5 tiles -->
+                        <div class="row justify-content-center">
+                            <!-- sea border -->
+                            <div class="tile col-4 sea-oneway-60" id="sea-div-9"></div>
+
+                            <!-- 8th tile -->
+                            <div class="tile col-2.5" id="map_div_8">
+                                <div class="justify-content-center map-num-pos-div">
+                                    <div class="map-div-back" id="map_div_8_back">
+                                        <div class="map-div-num" id="map_div_8_num"> </div>
+                                        <div class="map-div-dot" id="map_div_8_dot"> </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 9th tile -->
+                            <div class="tile col-2.5" id="map_div_9">
+                                <div class="justify-content-center map-num-pos-div">
+                                    <div class="map-div-back" id="map_div_9_back">
+                                        <div class="map-div-num" id="map_div_9_num"> </div>
+                                        <div class="map-div-dot" id="map_div_9_dot"> </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 10th tile -->
+                            <div class="tile col-2.5" id="map_div_10">
+                                <div class="justify-content-center map-num-pos-div">
+                                    <div class="map-div-back" id="map_div_10_back">
+                                        <div class="map-div-num" id="map_div_10_num"> </div>
+                                        <div class="map-div-dot" id="map_div_10_dot"> </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 11th tile -->
+                            <div class="tile col-2.5" id="map_div_11">
+                                <div class="justify-content-center map-num-pos-div">
+                                    <div class="map-div-back" id="map_div_11_back">
+                                        <div class="map-div-num" id="map_div_11_num"> </div>
+                                        <div class="map-div-dot" id="map_div_11_dot"> </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 12th tile -->
+                            <div class="tile col-2.5" id="map_div_12">
+                                <div class="justify-content-center map-num-pos-div">
+                                    <div class="map-div-back" id="map_div_12_back">
+                                        <div class="map-div-num" id="map_div_12_num"> </div>
+                                        <div class="map-div-dot" id="map_div_12_dot"> </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- sea border -->
+                            <div class="tile col-4 sea-oneway-240" id="sea-div-10"></div>
+                        </div>
+
+                        <!-- fourth row with 4 tiles -->
+                        <div class="row justify-content-center">
+                            <!-- sea border -->
+                            <div class="tile col-3 sea-twoway-60" id="sea-div-11"></div>
+
+                            <!-- 13th tile -->
+                            <div class="tile col-3" id="map_div_13">
+                                <div class="justify-content-center map-num-pos-div">
+                                    <div class="map-div-back" id="map_div_13_back">
+                                        <div class="map-div-num" id="map_div_13_num"> </div>
+                                        <div class="map-div-dot" id="map_div_13_dot"> </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 14th tile -->
+                            <div class="tile col-3" id="map_div_14">
+                                <div class="justify-content-center map-num-pos-div">
+                                    <div class="map-div-back" id="map_div_14_back">
+                                        <div class="map-div-num" id="map_div_14_num"> </div>
+                                        <div class="map-div-dot" id="map_div_14_dot"> </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 15th tile -->
+                            <div class="tile col-3" id="map_div_15">
+                                <div class="justify-content-center map-num-pos-div">
+                                    <div class="map-div-back" id="map_div_15_back">
+                                        <div class="map-div-num" id="map_div_15_num"> </div>
+                                        <div class="map-div-dot" id="map_div_15_dot"> </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 16th tile -->
+                            <div class="tile col-3" id="map_div_16">
+                                <div class="justify-content-center map-num-pos-div">
+                                    <div class="map-div-back" id="map_div_16_back">
+                                        <div class="map-div-num" id="map_div_16_num"> </div>
+                                        <div class="map-div-dot" id="map_div_16_dot"> </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- sea border -->
+                            <div class="tile col-3 sea-twoway-300" id="sea-div-12"></div>
+                        </div>
+
+                        <!-- fifth row with 3 tiles -->
+                        <div class="row justify-content-center">
+                            <!-- sea border -->
+                            <div class="tile col-4 sea-twoway-60" id="sea-div-13"></div>
+
+                            <!-- 17th tile -->
+                            <div class="tile col-4" id="map_div_17">
+                                <div class="justify-content-center map-num-pos-div">
+                                    <div class="map-div-back" id="map_div_17_back">
+                                        <div class="map-div-num" id="map_div_17_num"> </div>
+                                        <div class="map-div-dot" id="map_div_17_dot"> </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 18th tile -->
+                            <div class="tile col-4" id="map_div_18">
+                                <div class="justify-content-center map-num-pos-div">
+                                    <div class="map-div-back" id="map_div_18_back">
+                                        <div class="map-div-num" id="map_div_18_num"> </div>
+                                        <div class="map-div-dot" id="map_div_18_dot"> </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 19th tile -->
+                            <div class="tile col-4" id="map_div_19">
+                                <div class="justify-content-center map-num-pos-div">
+                                    <div class="map-div-back" id="map_div_19_back">
+                                        <div class="map-div-num" id="map_div_19_num"> </div>
+                                        <div class="map-div-dot" id="map_div_19_dot"> </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- sea border -->
+                            <div class="tile col-4 sea-twoway-300" id="sea-div-14"></div>
+                        </div>
+
+                        <!-- sea bottom border -->
+                        <div class="row justify-content-center">
+                            <div class="tile col-4 sea-oneway-0" id="sea-div-15"></div>
+
+                            <div class="tile col-4 sea-twoway-0" id="sea-div-16"></div>
+
+                            <div class="tile col-4 sea-twoway-0" id="sea-div-17"></div>
+
+                            <div class="tile col-4 sea-oneway-300" id="sea-div-18"></div>
                         </div>
                     </div>
                 </div>
+            </div>
 
+        </div>
+    </div>
+
+    <!-- Modal for errors --->
+    <div class="modal fade" id="alertModal" tabindex="-1" aria-labelledby="alertModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="alertModalLabel">There has been an error</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Bezárás"></button>
+                </div>
+                <div class="modal-body" id="alertModalBody">
+                    <!-- This is where the error message is shown -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Ok</button>
+                </div>
             </div>
         </div>
+    </div>
 
-        <script src="./resources/js/init.js"></script>
-        <script src="./resources/js/shuffle.js"></script>
-        <script src="./resources/js/helpers.js"></script>
-        <script src="./resources/js/ports.js"></script>
-    </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./resources/js/init.js"></script>
+    <script src="./resources/js/shuffle.js"></script>
+    <script src="./resources/js/helpers.js"></script>
+    <script src="./resources/js/ports.js"></script>
+
+
+</body>
+
 </html>
