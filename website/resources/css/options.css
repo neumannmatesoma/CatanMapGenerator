@@ -16,11 +16,11 @@
     font-weight: bold;
     padding: 0.5rem;
     display: flex;
-    align-items: center; /* Vertikális középre igazítás */
+    align-items: center;
 }
 
 .table-element input[type="checkbox"] {
-    margin-left: 0; /* Biztosítjuk, hogy ne legyen extra bal margó */
+    margin-left: 0;
 }
 
 .checkbox-round {

@@ -211,24 +211,6 @@ function shuffleArray(array) {
     return array;
 }
 
-// returns the dice odd of the given number
-function RollCalculator(num) {
-    const rollValues = {
-        2: 1,
-        3: 2,
-        4: 3,
-        5: 4,
-        6: 5,
-        7: 6,
-        8: 5,
-        9: 4,
-        10: 3,
-        11: 2,
-        12: 1
-    };
-    return rollValues[num];
-}
-
 // checks if each resource has at least two different numbers associated with it
 function checkResourceWidth(resources, numbers) {
     const resourceNumbers = {
@@ -261,6 +243,24 @@ function checkResourceWidth(resources, numbers) {
 
     console.log("Rule 6 (Resource Diversity Rule) passed for all resources");
     return true; // passes if all resources have at least 2 different numbers
+}
+
+// returns the dice odd of the given number
+function RollCalculator(num) {
+    const rollValues = {
+        2: 1,
+        3: 2,
+        4: 3,
+        5: 4,
+        6: 5,
+        7: 6,
+        8: 5,
+        9: 4,
+        10: 3,
+        11: 2,
+        12: 1
+    };
+    return rollValues[num];
 }
 
 function showModal(message) {

@@ -1,4 +1,3 @@
-/* Az eredeti stílusok megtartása */
 body {
     background-color: #D0BA98;
 }
@@ -53,26 +52,25 @@ div {
     flex-direction: column;
 }
 
-/* Hexagon grid jobb középre igazítása */
 .map-grid {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    overflow: visible; /* A szülőelem ne vágja le a tile-okat */
+    overflow: visible;
 }
 
 .map-grid .row {
     width: 100%;
     display: flex;
     justify-content: center;
-    overflow: visible; /* A sorok se vágják le a tile-okat */
+    overflow: visible;
 }
 
 /* Az 1347px–1200px tartományban finomhangolás */
 @media screen and (max-width: 1348px) and (min-width: 1201px) {
     .map-grid .row:nth-child(odd) {
-        transform: translateX(0); /* Eltávolítjuk az eltolást, hogy ne legyen átfedés */
+        transform: translateX(0);
     }
 }
 
@@ -209,8 +207,8 @@ div {
 }
 
 .modal-body {
-    white-space: pre-wrap; /* sortörés + \n megtartása */
-    word-wrap: break-word; /* hosszú szavakat is törjön */
+    white-space: pre-wrap;
+    word-wrap: break-word;
     background-color: #D0BA98;
 }
 .modal-header, .modal-footer {
