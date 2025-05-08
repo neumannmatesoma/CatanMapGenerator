@@ -95,8 +95,9 @@ function DisplayBoard(resources, numbers) {
         }
     }
 
-    if (getRule5()) { GenerateRandomPorts(); } // generating ports randomly
-    else { GenerateBasePorts(); } // generating base ports
+    // Generate ports based on Rule 5
+    if (getRule5()) { GenerateRandomPorts(); }
+    else { GenerateBasePorts(); }
 }
 
 // placing numbers with regulations
