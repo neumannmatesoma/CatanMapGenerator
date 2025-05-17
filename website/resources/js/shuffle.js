@@ -202,7 +202,7 @@ function distributeNumbers(resources) {
 
     // Fallback to default random shuffling if max attempts were exceeded
     showModal('There has been an error!',
-                `The system was unable to distribute the <b>numbers</br> evenly and has therefore utilized randomly generated resources.<br>` +
+                `The system was unable to distribute the <b>numbers</b> evenly and has therefore utilized randomly generated resources.<br>` +
                 `Please shuffle again if your are not satisfied with the board.`);
     numbers.fill(null);
     numIndex = 0;
