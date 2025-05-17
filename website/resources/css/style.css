@@ -67,7 +67,6 @@ div {
     overflow: visible;
 }
 
-/* Az 1347px–1200px tartományban finomhangolás */
 @media screen and (max-width: 1348px) and (min-width: 1201px) {
     .map-grid .row:nth-child(odd) {
         transform: translateX(0);
