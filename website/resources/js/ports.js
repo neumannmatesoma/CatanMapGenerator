@@ -22,7 +22,7 @@ function GenerateBasePorts() {
         var prev_rotation = document.getElementById(div).classList.toString().split(' ')[2];
 
         // setting the new rotation --> eg.: port-oneway-120
-        // port class contains 3 section,the 2nd is the ammount of land edges (oneway/twoway) 
+        // port class contains 3 section,the 2nd is the amount of land edges (oneway/twoway) 
         // the 3rd is the rotation in degree --> port-oneway-120
         var new_rotation = `port-${prev_rotation.toString().split('-')[1]}-${prev_rotation.toString().split('-')[2]}`;
 
@@ -63,7 +63,7 @@ function GenerateRandomPorts() {
         var prev_rotation = document.getElementById(div).classList.toString().split(' ')[2];
 
         // setting the new rotation --> eg.: port-oneway-120
-        // port class contains 3 section,the 2nd is the ammount of land edges (oneway/twoway) 
+        // port class contains 3 section,the 2nd is the amount of land edges (oneway/twoway) 
         // the 3rd is the rotation in degree --> port-oneway-120
         var new_rotation = `port-${prev_rotation.toString().split('-')[1]}-${prev_rotation.toString().split('-')[2]}`;
 
@@ -79,6 +79,13 @@ function PlacePort(div, div_new_rotation, div_prev_rotation) {
 
     // adds the new port class onto the given div
     document.getElementById(div).classList.add(div_new_rotation);
+    
+    theme = document.getElementById("theme_selector_id").value;
+    if (theme === "realistic") { 
+        document.getElementById(div).style.backgroundImage = `url(${pic_path}/sea/port.png)`;
+    } else {
+        document.getElementById(div).style.backgroundImage = ''; // Reset to CSS-defined image
+    }
 }
 
 // places a sea tile onto the given div
@@ -88,6 +95,13 @@ function PlaceSea(div, div_new_rotation, div_prev_rotation) {
 
     // adds the new sea class onto the given div
     document.getElementById(div).classList.add(div_new_rotation);
+
+    theme = document.getElementById("theme_selector_id").value;
+    if (theme === "realistic") { 
+        document.getElementById(div).style.backgroundImage = `url(${pic_path}/sea/sea.png)`;
+    } else {
+        document.getElementById(div).style.backgroundImage = ''; // Reset to CSS-defined image
+    }
 }
 
 // utility function to generate random number between min and max (inclusive)

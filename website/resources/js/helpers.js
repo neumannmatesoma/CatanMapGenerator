@@ -3,6 +3,7 @@ function PicChange(pic, num) {
     document.getElementById(`map_div_${num}`).style.backgroundImage = `url(${pic_path + pic}.png)`;
 }
 
+
 // unloads numbers from desert
 function UnloadNumberForDesert(i) {
     document.getElementById(`map_div_${i}_back`).style.backgroundImage = 'none';
@@ -15,9 +16,6 @@ function getRandom(min, max) { return Math.floor(Math.random() * (max - min) + m
 
 // information display
 function InformationDisplay() {
-    //showModal('Information',
-    //        `<b>About the rules</b><br>- <b>6 & 8 can touch:</b> 6 and 8 number tiles can be placed next to each other.<br>- <b>2 & 12 can touch:</b> 2 and 12 number tiles can be placed next to each other.<br>- <b>Same numbers can touch:</b> Identical numbers can be placed on adjacent tiles.<br>- <b>Same resources can touch:</b> Same resource tiles (e.g., wheat, wood) can be placed next to each other.<br>- <b>Randomize ports:</b> Ports are placed randomly on the board.<br>- <b>Varied resource numbers:</b> Different numbers are assigned to tiles of the same resource for balance.`)
-
     showModal('Information', 
         `<b>About the rules</b><br>˛` + 
             `<span style="font-weight: bold; color: #333;">➤</span> <b>6 & 8 can touch:</b> 6 and 8 number tiles can be placed next to each other.<br>`+
