@@ -4,14 +4,71 @@ function Shuffle() {
     console.clear();
 
     // allocating resources randomly
-    const resources = shuffleArray([...standardResources]);
+    const resources = allocateResources();
 
     // allocating numbers
     const numbers = distributeNumbers(resources);
 
     // displaying the board
     DisplayBoard(resources, numbers);
+}
 
+// allocates resources following the rules
+function allocateResources() {
+    // the number of the current attempt
+    let attempts = 0;
+    // the number of the maximum attempts
+    const maxAttempts = 10000;
+
+    while (attempts < maxAttempts) {
+        // increase the current attempt counter
+        attempts++;
+
+        // shuffling the resources
+        const resources = shuffleArray([...standardResources]);
+        
+        // validating resources
+        if (validateResourcePlacement(resources)) {
+            console.log(`The resources were evenly distributed after ${attempts} attempts`);
+            return resources;
+        }
+    }
+    
+    // fallback to default random shuffling if max attempts were exceeded
+        showModal('There has been an error!',
+                `The system was unable to distribute the <b>resources</b> evenly and has therefore utilized randomly generated resources.<br>` +
+                `Please shuffle again if your are not satisfied with the board.`);
+    return shuffleArray([...standardResources]);
+}
+
+// validates resource placement according to the rules
+function validateResourcePlacement(resources) {
+    // if rule4 is turned on, same resources can touch
+    if (rule4) {
+        return true; // no need to check
+    }
+
+    // checking if same resources are not touching
+    for (let i = 0; i < 19; i++) {
+        const currentResource = resources[i];
+        const tileNeighbors = neighbors[i + 1];
+
+        // checking all neighbors
+        for (const neighbor of tileNeighbors) {
+            const neighborIndex = neighbor - 1;
+            const neighborResource = resources[neighborIndex];
+
+            // skip if the neighbor doesn't have a resource yet
+            if (neighborResource === undefined) continue;
+
+            // if rule4 is turned off, same resources can't touch
+            if (currentResource === neighborResource && currentResource !== 'desert') {
+                return false;
+            }
+        }
+    }
+
+    return true; // all resources are placed correctly
 }
 
 // displays the whole board
@@ -40,15 +97,16 @@ function DisplayBoard(resources, numbers) {
         }
     }
 
-    // generating ports
-    GenerateBasePorts();
+    // Generate ports based on Rule 5
+    if (getRule5()) { GenerateRandomPorts(); }
+    else { GenerateBasePorts(); }
 }
 
-// placing nunbers with regulations
+// placing numbers with regulations
 function distributeNumbers(resources) {
     // 19 element long array which stores a possibility number for every tile
     const numbers = new Array(19).fill(null);
-    // shuffleing the possible numbers
+    // shuffling the possible numbers
     const shuffledNumbers = shuffleArray([...standardNumbers]);
     // searching for desert's position
     const desertIndex = resources.indexOf('desert');
@@ -56,47 +114,98 @@ function distributeNumbers(resources) {
     // the number of the current attempt
     let attempts = 0;
     // the number of the maximum attempts
-    const maxAttempts = 100;
+    const maxAttempts = 10000;
 
     while (attempts < maxAttempts) {
         // increase the current attempt counter
         attempts++;
 
-        // reseting numbers array on every attempt
-        // restarting the distribution of numbers
+        // resetting numbers array on every attempt
         numbers.fill(null);
         let success = true;
         let numIndex = 0;
 
-        for (let i = 0; i < 19; i++) {
-            // skipping desert
-            if (i === desertIndex) continue;
+        // Group tiles by resource
+        const resourceGroups = {};
+        resources.forEach((resource, index) => {
+            if (resource !== 'desert') {
+                if (!resourceGroups[resource]) resourceGroups[resource] = [];
+                resourceGroups[resource].push(index);
+            }
+        });
 
-            // distributing the next number
-            const currentNumber = shuffledNumbers[numIndex++];
-            numbers[i] = currentNumber;
+        // If rule6 is enabled, ensure varied numbers for each resource
+        if (rule6) {
+            let numbersCopy = [...standardNumbers];
+            for (let resource in resourceGroups) {
+                const indices = resourceGroups[resource];
+                let usedNumbers = new Set();
 
-            // validating the number via rules
-            if (!validateNumberPlacement(i, numbers)) {
-                success = false;
-                break;
+                for (let index of indices) {
+                    // Filter available numbers that haven't been used for this resource
+                    let availableForResource = numbersCopy.filter(num => !usedNumbers.has(num));
+
+                    if (availableForResource.length === 0) {
+                        success = false;
+                        break; // Not enough unique numbers for this resource
+                    }
+
+                    // Pick a random number from the available ones
+                    const randomIndex = Math.floor(Math.random() * availableForResource.length);
+                    const number = availableForResource[randomIndex];
+
+                    // Assign the number to the tile
+                    numbers[index] = number;
+
+                    // Mark the number as used for this resource
+                    usedNumbers.add(number);
+
+                    // Remove the number from the global pool
+                    const globalIndex = numbersCopy.indexOf(number);
+                    if (globalIndex !== -1) numbersCopy.splice(globalIndex, 1);
+                }
+                if (!success) break;
+            }
+        } else {
+            // If rule6 is not enabled, assign numbers randomly without restrictions
+            for (let i = 0; i < 19; i++) {
+                if (i === desertIndex) continue;
+                numbers[i] = shuffledNumbers[numIndex++];
             }
         }
 
-        // if everything ok logging success and how much attempts it took
+        // Validate number placement with other rules
+        if (success) {
+            for (let i = 0; i < 19; i++) {
+                if (numbers[i] !== null && !validateNumberPlacement(i, numbers)) {
+                    success = false;
+                    break;
+                }
+            }
+        }
+
+        // Check rule6 (Resource Diversity Rule) if enabled
+        if (success && rule6) {
+            if (!checkResourceWidth(resources, numbers)) {
+                success = false;
+            }
+        }
+
         if (success) {
             console.log(`The numbers were evenly distributed after ${attempts} attempts`);
             return numbers;
         }
 
-        // if something went wrong the numbers are reshuffled
+        // If something went wrong, reshuffle numbers
         shuffleArray(shuffledNumbers);
     }
 
-    // fallback to default, random shuffleing if max attempts were exceeded
-    alert(`Failed to distribute evenly, reverted to random generized numbers.\nPlease shuffle again if your are not satisfied with the board.`);
+    // Fallback to default random shuffling if max attempts were exceeded
+    showModal('There has been an error!',
+                `The system was unable to distribute the <b>numbers</b> evenly and has therefore utilized randomly generated resources.<br>` +
+                `Please shuffle again if your are not satisfied with the board.`);
     numbers.fill(null);
-    let numIndex = 0;
+    numIndex = 0;
     for (let i = 0; i < 19; i++) {
         if (resources[i] !== 'desert') {
             numbers[i] = shuffledNumbers[numIndex++];
@@ -151,6 +260,40 @@ function shuffleArray(array) {
     return array;
 }
 
+// checks if each resource has at least two different numbers associated with it
+function checkResourceWidth(resources, numbers) {
+    const resourceNumbers = {
+        'wood': new Set(),
+        'brick': new Set(),
+        'wheat': new Set(),
+        'sheep': new Set(),
+        'ore': new Set()
+    };
+
+    // iterate through the board to collect numbers for each resource
+    for (let i = 0; i < 19; i++) {
+        if (resources[i] === 'desert' || numbers[i] === null) continue; // skip desert and unassigned numbers
+        if (!resourceNumbers.hasOwnProperty(resources[i])) {
+            console.warn(`Unknown resource encountered: ${resources[i]} at index ${i}`);
+            continue; // skip unknown resources to avoid error
+        }
+        resourceNumbers[resources[i]].add(numbers[i]);
+    }
+
+    // check if each resource has at least two different numbers
+    for (let resource in resourceNumbers) {
+        const uniqueNumbers = resourceNumbers[resource].size;
+        console.log(`Resource ${resource} has ${uniqueNumbers} unique numbers: ${[...resourceNumbers[resource]].join(', ')}`);
+        if (uniqueNumbers < 2) {
+            console.log(`Rule 6 (Resource Diversity Rule) failed for ${resource}`);
+            return false; // fails if any resource has fewer than 2 different numbers
+        }
+    }
+
+    console.log("Rule 6 (Resource Diversity Rule) passed for all resources");
+    return true; // passes if all resources have at least 2 different numbers
+}
+
 // returns the dice odd of the given number
 function RollCalculator(num) {
     const rollValues = {
@@ -167,4 +310,35 @@ function RollCalculator(num) {
         12: 1
     };
     return rollValues[num];
+}
+
+function showModal(header, message) {
+    // Előző backdrop eltávolítása, ha van
+    document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+
+    // Biztosítsuk, hogy a modal ne legyen nyitva újra, ha már az
+    const alertModalElement = document.getElementById('alertModal');
+    const existingModal = bootstrap.Modal.getInstance(alertModalElement);
+    if (existingModal) {
+        existingModal.hide();
+    }
+
+    // Setting header
+    const modalHeader = document.getElementById('alertModalLabel');
+    modalHeader.textContent = header;
+
+    // Szöveg beállítása HTML-ként
+    const modalBody = document.getElementById('alertModalBody');
+    modalBody.innerHTML = message; // Itt változik textContent-ről innerHTML-re
+
+    // Új modal példány
+    const modal = new bootstrap.Modal(alertModalElement);
+    modal.show();
+
+    // ✨ Modal zárásakor eltávolítjuk az esetlegesen ottmaradt háttér és tiltásokat
+    alertModalElement.addEventListener('hidden.bs.modal', () => {
+        document.body.classList.remove('modal-open');
+        document.body.style.overflow = 'auto';
+        document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+    }, { once: true }); // csak egyszer fusson le
 }

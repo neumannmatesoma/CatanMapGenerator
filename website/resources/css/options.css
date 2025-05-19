@@ -15,6 +15,12 @@
     font-size: 1rem;
     font-weight: bold;
     padding: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.table-element input[type="checkbox"] {
+    margin-left: 0;
 }
 
 .checkbox-round {
